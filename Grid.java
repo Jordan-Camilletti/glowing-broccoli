@@ -12,19 +12,19 @@ public class Grid {
 		}
 		grid[4][4]='O';
 	}
-	/*public void showMap(char[][] grid){
+	/*public void showMap(){
 		for(int n1=0;n1<9;n1++){
 			for(int n2=0;n2<9;n2++){
-				System.out.print(grid[n1][n2]);
+				System.out.print(this.grid[n1][n2]);
 			}
 			System.out.print("\n");
 		}
 	}*/
-	public JLabel showMap(char[][] gird){
+	public JLabel showMap(){
 		String s="<html>";
 		for(int n1=0;n1<9;n1++){
 			for(int n2=0;n2<9;n2++){
-				s=s+grid[n1][n2];
+				s=s+this.grid[n1][n2];
 			}
 			s=s+"<br/>";
 		}
@@ -32,10 +32,10 @@ public class Grid {
 		JLabel l=new JLabel(s+"</html>");
 		return(l);
 	}
-	public void setEmpty(char[][] grid){
+	public void setEmpty(){
 		for(int i=0;i<81;i++){
-			grid[i/9][i%9]='X';
+			this.grid[i/9][i%9]='X';
 		}
-		grid[4][4]='O';
+		this.grid[4][4]='O';
 	}
 }
