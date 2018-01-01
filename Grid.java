@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 
 public class Grid {
 	public char[][] grid=new char[9][9];
+	public JLabel l=new JLabel();
 	public Grid(){
 		setEmpty();
 	}
@@ -26,7 +27,7 @@ public class Grid {
 			s=s+"<br/>";
 		}
 		s=s+"</html>";
-		JLabel l=new JLabel(s+"</html>");
+		this.l.setText(s+"</html>");
 		return(l);
 	}
 	public void setEmpty(){//Sets the grid completely empty
