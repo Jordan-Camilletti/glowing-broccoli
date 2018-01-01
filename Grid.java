@@ -25,7 +25,7 @@ public class Grid {
 				s=s+this.grid[n1][n2];
 			}
 			s=s+"<br/>";
-		}//TODO: modify this or create a new method to allow the map to be updated
+		}
 		s=s+"</html>";
 		this.l.setText(s+"</html>");
 		return(l);
@@ -35,5 +35,22 @@ public class Grid {
 			this.grid[i/9][i%9]='X';
 		}
 		this.grid[4][4]='O';
+	}
+	public void update(String wrd){
+		switch(wrd.toUpperCase()){
+		case "UP": 
+			this.grid[0][0]='U';
+			break;
+		case "DOWN": 
+			this.grid[0][0]='D';
+			break;
+		case "LEFT": 
+			this.grid[0][0]='L';
+			break;
+		case "RIGHT": 
+			this.grid[0][0]='R';
+			break;
+		}
+		this.l=showMap();
 	}
 }
