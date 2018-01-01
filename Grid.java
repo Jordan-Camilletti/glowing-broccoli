@@ -7,10 +7,7 @@ import javax.swing.JLabel;
 public class Grid {
 	public char[][] grid=new char[9][9];
 	public Grid(){
-		for(int i=0;i<81;i++){
-			grid[i/9][i%9]='X';
-		}
-		grid[4][4]='O';
+		setEmpty();
 	}
 	/*public void showMap(){
 		for(int n1=0;n1<9;n1++){
@@ -20,7 +17,7 @@ public class Grid {
 			System.out.print("\n");
 		}
 	}*/
-	public JLabel showMap(){
+	public JLabel showMap(){//returns a JLabel that outputs the grid
 		String s="<html>";
 		for(int n1=0;n1<9;n1++){
 			for(int n2=0;n2<9;n2++){
@@ -32,7 +29,7 @@ public class Grid {
 		JLabel l=new JLabel(s+"</html>");
 		return(l);
 	}
-	public void setEmpty(){
+	public void setEmpty(){//Sets the grid completely empty
 		for(int i=0;i<81;i++){
 			this.grid[i/9][i%9]='X';
 		}
