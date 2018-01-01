@@ -14,5 +14,5 @@ public class Main {
 		f.add(map.showMap());
 		f.pack();
 		f.setVisible(true);
-	}
+	}//TODO: create a way to update the game frame
 }
