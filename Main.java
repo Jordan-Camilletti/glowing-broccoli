@@ -10,7 +10,6 @@ public class Main {
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Grid map=new Grid();
-		map.setEmpty();
 		f.add(map.showMap());
 		f.pack();
 		f.setVisible(true);
