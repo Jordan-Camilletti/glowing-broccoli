@@ -25,7 +25,7 @@ public class Grid {
 				s=s+this.grid[n1][n2];
 			}
 			s=s+"<br/>";
-		}
+		}//TODO: modify this or create a new method to allow the map to be updated
 		s=s+"</html>";
 		this.l.setText(s+"</html>");
 		return(l);
