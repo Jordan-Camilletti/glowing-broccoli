@@ -14,5 +14,10 @@ public class Main {
 		f.add(map.showMap());
 		f.pack();
 		f.setVisible(true);
-	}//TODO: create a way to update the game frame
+		Scanner k=new Scanner(System.in);
+		for(int n=0;n<4;n++){
+			String test1=k.nextLine();
+			map.update(test1);
+		}
+	}
 }
