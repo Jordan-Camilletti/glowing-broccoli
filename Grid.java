@@ -5,7 +5,7 @@ package main;
 import javax.swing.JLabel;
 
 public class Grid {
-	public char[][] grid=new char[21][21];
+	public char[][] grid=new char[9][9];
 	public JLabel l=new JLabel();
 	public Grid(){
 		setEmpty();
@@ -32,10 +32,8 @@ public class Grid {
 	}
 	public void setEmpty(){//Sets the grid completely empty
 		for(int i=0;i<81;i++){
-			if(i/9==0||i/9==8){
-				this.grid[i/9][i%9]='|';
-			}else if(i%9==0||i%9==8){
-				this.grid[i/9][i%9]='-';
+			if(i/9==0||i/9==8||i%9==0||i%9==8){
+				this.grid[i/9][i%9]='#';
 			}else if(Math.random()>=0.5){
 				this.grid[i/9][i%9]='X';
 			}else{
