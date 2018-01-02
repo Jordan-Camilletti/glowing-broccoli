@@ -35,10 +35,10 @@ public class Grid {
 		for(int i=0;i<100;i++){
 			if(i/10==0||i/10==9||i%10==0||i%10==9){
 				this.grid[i/10][i%10]='#';
-			}else if(Math.random()>=0.8){
-				this.grid[i/10][i%10]='X';
-			}else{
+			}else if(Math.random()>=0.9){
 				this.grid[i/10][i%10]='^';
+			}else{
+				this.grid[i/10][i%10]='X';
 			}
 		}
 		this.grid[1][1]='O';
