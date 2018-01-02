@@ -5,7 +5,7 @@ package main;
 import javax.swing.JLabel;
 
 public class Grid {
-	public char[][] grid=new char[9][9];
+	public char[][] grid=new char[21][21];
 	public JLabel l=new JLabel();
 	public Grid(){
 		setEmpty();
@@ -32,23 +32,31 @@ public class Grid {
 	}
 	public void setEmpty(){//Sets the grid completely empty
 		for(int i=0;i<81;i++){
-			this.grid[i/9][i%9]='X';
+			if(i/9==0||i/9==8){
+				this.grid[i/9][i%9]='|';
+			}else if(i%9==0||i%9==8){
+				this.grid[i/9][i%9]='-';
+			}else if(Math.random()>=0.5){
+				this.grid[i/9][i%9]='X';
+			}else{
+				this.grid[i/9][i%9]='^';
+			}
 		}
 		this.grid[4][4]='O';
 	}
 	public void update(String wrd){
 		switch(wrd.toUpperCase()){
 		case "UP": 
-			this.grid[0][0]='U';
+			System.out.print("U");
 			break;
 		case "DOWN": 
-			this.grid[0][0]='D';
+			System.out.print("D");
 			break;
 		case "LEFT": 
-			this.grid[0][0]='L';
+			System.out.print("L");
 			break;
 		case "RIGHT": 
-			this.grid[0][0]='R';
+			System.out.print("R");
 			break;
 		}
 		this.l=showMap();
