@@ -9,21 +9,6 @@ public class Grid {
 	public JLabel l=new JLabel();
 	public int[] player=new int[2];
 	public Grid(){
-		setEmpty();
-	}
-	public JLabel showMap(){//returns a JLabel that outputs the grid
-		String s="<html>";
-		for(int n1=0;n1<5;n1++){
-			for(int n2=0;n2<5;n2++){
-				s=s+this.grid[n1][n2];
-			}
-			s=s+"<br/>";
-		}
-		s=s+"</html>";
-		this.l.setText(s+"</html>");
-		return(l);
-	}
-	public void setEmpty(){//Creates the grid and it's components
 		for(int i=0;i<100;i++){
 			if(i/10==0||i/10==9||i%10==0||i%10==9){
 				this.grid[i/10][i%10]='#';
@@ -37,18 +22,33 @@ public class Grid {
 		this.player[0]=1;
 		this.player[1]=1;
 	}
+	public JLabel showMap(){//returns a JLabel that outputs the grid
+		String s="<html>";
+		for(int n1=0;n1<5;n1++){
+			for(int n2=0;n2<5;n2++){
+				s=s+this.grid[n1][n2];
+			}
+			s=s+"<br/>";
+		}
+		s=s+"</html>";
+		this.l.setText(s+"</html>");
+		return(l);
+	}
+	/*public void setEmpty(){//Creates the grid and it's components
+		
+	}*/
 	public void update(String wrd){
 		switch(wrd.toUpperCase()){
-		case "UP": 
+		case "U": 
 			System.out.print("U");
 			break;
-		case "DOWN": 
+		case "D": 
 			System.out.print("D");
 			break;
-		case "LEFT": 
+		case "L": 
 			System.out.print("L");
 			break;
-		case "RIGHT": 
+		case "R": 
 			System.out.print("R");
 			break;
 		}
