@@ -5,7 +5,7 @@ package main;
 import javax.swing.JLabel;
 
 public class Grid {
-	public char[][] grid=new char[21][21];
+	public char[][] grid=new char[10][10];
 	public JLabel l=new JLabel();
 	public int[] player=new int[2];
 	public Grid(){
@@ -21,8 +21,8 @@ public class Grid {
 	}*/
 	public JLabel showMap(){//returns a JLabel that outputs the grid
 		String s="<html>";
-		for(int n1=0;n1<9;n1++){
-			for(int n2=0;n2<9;n2++){
+		for(int n1=0;n1<5;n1++){
+			for(int n2=0;n2<5;n2++){
 				s=s+this.grid[n1][n2];
 			}
 			s=s+"<br/>";
@@ -31,17 +31,19 @@ public class Grid {
 		this.l.setText(s+"</html>");
 		return(l);
 	}
-	public void setEmpty(){//Sets the grid completely empty
-		for(int i=0;i<81;i++){
-			if(i/9==0||i/9==8||i%9==0||i%9==8){
-				this.grid[i/9][i%9]='#';
-			}else if(Math.random()>=0.5){
-				this.grid[i/9][i%9]='X';
+	public void setEmpty(){//Creates the grid and it's components
+		for(int i=0;i<100;i++){
+			if(i/5==0||i/5==8||i%5==0||i%5==8){
+				this.grid[i/5][i%5]='#';
+			}else if(Math.random()>=0.8){
+				this.grid[i/5][i%5]='X';
 			}else{
-				this.grid[i/9][i%9]='^';
+				this.grid[i/5][i%5]='^';
 			}
 		}
-		this.grid[4][4]='O';
+		this.grid[1][1]='O';
+		this.player[0]=1;
+		this.player[1]=1;
 	}
 	public void update(String wrd){
 		switch(wrd.toUpperCase()){
