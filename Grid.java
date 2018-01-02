@@ -18,9 +18,9 @@ public class Grid {
 				this.grid[i/10][i%10]='X';
 			}
 		}
-		this.grid[1][1]='O';
-		this.player[0]=1;
-		this.player[1]=1;
+		this.player[0]=2;
+		this.player[1]=2;
+		this.grid[this.player[0]][this.player[1]]='O';
 	}
 	public JLabel showMap(){//returns a JLabel that outputs the grid
 		String s="<html>";
