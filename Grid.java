@@ -33,12 +33,12 @@ public class Grid {
 	}
 	public void setEmpty(){//Creates the grid and it's components
 		for(int i=0;i<100;i++){
-			if(i/5==0||i/5==8||i%5==0||i%5==8){
-				this.grid[i/5][i%5]='#';
+			if(i/10==0||i/10==9||i%10==0||i%10==9){
+				this.grid[i/10][i%10]='#';
 			}else if(Math.random()>=0.8){
-				this.grid[i/5][i%5]='X';
+				this.grid[i/10][i%10]='X';
 			}else{
-				this.grid[i/5][i%5]='^';
+				this.grid[i/10][i%10]='^';
 			}
 		}
 		this.grid[1][1]='O';
