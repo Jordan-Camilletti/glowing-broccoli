@@ -5,8 +5,9 @@ package main;
 import javax.swing.JLabel;
 
 public class Grid {
-	public char[][] grid=new char[9][9];
+	public char[][] grid=new char[21][21];
 	public JLabel l=new JLabel();
+	public int[] player=new int[2];
 	public Grid(){
 		setEmpty();
 	}
