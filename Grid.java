@@ -11,14 +11,6 @@ public class Grid {
 	public Grid(){
 		setEmpty();
 	}
-	/*public void showMap(){
-		for(int n1=0;n1<9;n1++){
-			for(int n2=0;n2<9;n2++){
-				System.out.print(this.grid[n1][n2]);
-			}
-			System.out.print("\n");
-		}
-	}*/
 	public JLabel showMap(){//returns a JLabel that outputs the grid
 		String s="<html>";
 		for(int n1=0;n1<5;n1++){
