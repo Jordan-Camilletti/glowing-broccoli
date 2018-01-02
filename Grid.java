@@ -18,8 +18,8 @@ public class Grid {
 				this.grid[i/10][i%10]='X';
 			}
 		}
-		this.player[0]=2;
-		this.player[1]=2;
+		this.player[0]=2;//y
+		this.player[1]=2;//x
 		this.grid[this.player[0]][this.player[1]]='O';
 	}
 	public JLabel showMap(){//returns a JLabel that outputs the grid
@@ -41,17 +41,22 @@ public class Grid {
 		switch(wrd.toUpperCase()){
 		case "U": 
 			System.out.print("U");
+			this.player[0]-=1;
 			break;
 		case "D": 
 			System.out.print("D");
+			this.player[0]+=1;
 			break;
 		case "L": 
 			System.out.print("L");
+			this.player[1]-=1;
 			break;
 		case "R": 
 			System.out.print("R");
+			this.player[1]+=1;
 			break;
 		}
+		this.grid[this.player[0]][this.player[1]]='O';
 		this.l=showMap();
 	}
 }
