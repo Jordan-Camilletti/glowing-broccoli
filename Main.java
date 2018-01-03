@@ -15,9 +15,10 @@ public class Main {
 		f.pack();
 		f.setVisible(true);
 		Scanner k=new Scanner(System.in);
+		String movement;
 		while(true){//TODO: add win/lose and change this
-			String test1=k.nextLine();
-			map.update(test1);
+			movement=k.nextLine();
+			map.update(movement);
 		}
 	}
 }
