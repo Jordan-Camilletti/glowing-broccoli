@@ -40,6 +40,7 @@ public class Grid {
 	}*/
 	public void update(String wrd){//updates the visible map
 		switch(wrd.toUpperCase()){
+		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		case "U": 
 			System.out.print("U");
 			this.player[0]-=1;
