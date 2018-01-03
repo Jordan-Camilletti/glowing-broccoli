@@ -35,9 +35,9 @@ public class Grid {
 		return(l);
 	}
 	/*public void setEmpty(){//Creates the grid and it's components
-		
+		this is unneeded as it would only be called once
 	}*/
-	public void update(String wrd){
+	public void update(String wrd){//
 		switch(wrd.toUpperCase()){
 		case "U": 
 			System.out.print("U");
