@@ -37,7 +37,7 @@ public class Grid {
 	/*public void setEmpty(){//Creates the grid and it's components
 		this is unneeded as it would only be called once
 	}*/
-	public void update(String wrd){//
+	public void update(String wrd){//TODO: add something to the spot the player started on, find way to store spot the player's currently on
 		switch(wrd.toUpperCase()){
 		case "U": 
 			System.out.print("U");
