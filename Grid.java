@@ -43,21 +43,27 @@ public class Grid {
 		switch(wrd.toUpperCase()){
 		case "U": 
 			System.out.print("U");
-			if(this.player[0]<1){
+			if(this.player[0]>1){
 				this.player[0]-=1;
 			}
 			break;
 		case "D": 
 			System.out.print("D");
-			this.player[0]+=1;
+			if(this.player[0]<8){
+				this.player[0]+=1;
+			}
 			break;
 		case "L": 
 			System.out.print("L");
-			this.player[1]-=1;
+			if(this.player[1]>1){
+				this.player[1]-=1;
+			}
 			break;
 		case "R": 
 			System.out.print("R");
-			this.player[1]+=1;
+			if(this.player[1]<8){
+				this.player[1]+=1;
+			}
 			break;
 		}
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
