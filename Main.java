@@ -15,7 +15,7 @@ public class Main {
 		f.pack();
 		f.setVisible(true);
 		Scanner k=new Scanner(System.in);
-		for(int n=0;n<4;n++){
+		while(true){//TODO: add win/lose and change this
 			String test1=k.nextLine();
 			map.update(test1);
 		}
