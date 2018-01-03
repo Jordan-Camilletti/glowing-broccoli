@@ -27,7 +27,7 @@ public class Grid {
 		String s="<html>";
 		for(int n1=0;n1<5;n1++){
 			for(int n2=0;n2<5;n2++){
-				s=s+this.grid[n1][n2];
+				s=s+this.grid[n1][n2];//TODO: change this so that the visible map follows the player
 			}
 			s=s+"<br/>";
 		}
