@@ -5,11 +5,12 @@ package main;
 import javax.swing.JLabel;
 
 public class Grid {
-	public char[][] grid=new char[10][10];
+	public char[][] grid=new char[10][10];//complete grid, not all is seen at once
 	public JLabel l=new JLabel();
 	public int[] player=new int[2];
+	public char playerSpot='X';//this is the spot the player is standing on
 	public Grid(){
-		for(int i=0;i<100;i++){
+		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10==0||i/10==9||i%10==0||i%10==9){
 				this.grid[i/10][i%10]='#';
 			}else if(Math.random()>=0.9){
@@ -22,7 +23,7 @@ public class Grid {
 		this.player[1]=2;//x
 		this.grid[this.player[0]][this.player[1]]='O';
 	}
-	public JLabel showMap(){//returns a JLabel that outputs the grid
+	public JLabel showMap(){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
 		for(int n1=0;n1<5;n1++){
 			for(int n2=0;n2<5;n2++){
@@ -35,9 +36,9 @@ public class Grid {
 		return(l);
 	}
 	/*public void setEmpty(){//Creates the grid and it's components
-		this is unneeded as it would only be called once
+		
 	}*/
-	public void update(String wrd){//TODO: add something to the spot the player started on, find way to store spot the player's currently on
+	public void update(String wrd){//updates the visible map
 		switch(wrd.toUpperCase()){
 		case "U": 
 			System.out.print("U");
