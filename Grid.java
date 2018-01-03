@@ -58,6 +58,7 @@ public class Grid {
 			this.player[1]+=1;
 			break;
 		}
+		this.playerSpot=this.grid[this.player[0]][this.player[1]];
 		this.grid[this.player[0]][this.player[1]]='O';
 		this.l=showMap();
 	}
