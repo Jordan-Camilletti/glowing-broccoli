@@ -38,29 +38,25 @@ public class Grid {
 	/*public void setEmpty(){//Creates the grid and it's components
 		
 	}*/
-	public void update(String wrd){//updates the visible map
+	public void update(String wrd){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
-			System.out.print("U");
 			if(this.player[0]>1){
 				this.player[0]-=1;
 			}
 			break;
 		case "D": 
-			System.out.print("D");
 			if(this.player[0]<8){
 				this.player[0]+=1;
 			}
 			break;
 		case "L": 
-			System.out.print("L");
 			if(this.player[1]>1){
 				this.player[1]-=1;
 			}
 			break;
 		case "R": 
-			System.out.print("R");
 			if(this.player[1]<8){
 				this.player[1]+=1;
 			}
