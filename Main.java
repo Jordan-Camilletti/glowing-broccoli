@@ -1,5 +1,7 @@
 /**/
 
+/**/
+
 package main;
 
 import java.util.Scanner;
@@ -16,7 +18,7 @@ public class Main {
 		f.setVisible(true);
 		Scanner k=new Scanner(System.in);
 		String movement;
-		while(true){//TODO: add win/lose and change this
+		while(!map.endGame()){//TODO: add win/lose and change this
 			movement=k.nextLine();
 			map.update(movement);
 		}
