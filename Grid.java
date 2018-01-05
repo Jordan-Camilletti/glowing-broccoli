@@ -38,6 +38,9 @@ public class Grid {
 	/*public void setEmpty(){//Creates the grid and it's components
 		
 	}*/
+	public boolean endGame(){
+		return(true);//used for ending game	
+	}
 	public void update(String wrd){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		switch(wrd.toUpperCase()){
