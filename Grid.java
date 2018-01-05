@@ -62,6 +62,8 @@ public class Grid {
 			}
 			break;
 		case "QUIT":
+			endGame();
+			break;
 		}
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
 		this.grid[this.player[0]][this.player[1]]='B';
