@@ -26,9 +26,12 @@ public class Grid {
 	}
 	public JLabel showMap(){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
-		for(int n1=0;n1<5;n1++){
-			for(int n2=0;n2<5;n2++){
+		for(int n1=this.player[0]-2;n1<=this.player[0]+2;n1++){
+			for(int n2=this.player[1]-2;n2<=this.player[1]+2;n2++){
 				s=s+this.grid[n1][n2];//TODO: change this so that the visible map follows the player
+				//if(this.grid[n1][n2]=='B'){
+				//System.out.print(n1+" "+n2+"\n");
+				//}
 			}
 			s=s+"<br/>";
 		}
