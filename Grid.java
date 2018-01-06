@@ -8,6 +8,7 @@ public class Grid {
 	public char[][] grid=new char[10][10];//complete grid, not all is seen at once
 	public JLabel l=new JLabel();
 	public int[] player=new int[2];
+	public boolean gameOver=false;
 	public char playerSpot='O';//this is the spot the player is standing on
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
@@ -38,9 +39,6 @@ public class Grid {
 	/*public void setEmpty(){//Creates the grid and it's components
 		
 	}*/
-	public boolean endGame(){
-		return(true);//used for ending game	
-	}
 	public void update(String wrd){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		switch(wrd.toUpperCase()){
@@ -65,7 +63,7 @@ public class Grid {
 			}
 			break;
 		case "QUIT":
-			endGame();
+			gameOver=true;
 			break;
 		}
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
