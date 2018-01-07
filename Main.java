@@ -18,14 +18,14 @@ public class Main {
 		Scanner k=new Scanner(System.in);
 		String movement;
 		while(!map.gameOver){//TODO: add win/lose and change this
-			movement=k.nextLine();
-			turn++;
-			ATP=3;
+			System.out.println(turn);
 			while(ATP>0){
+				movement=k.nextLine();
 				map.update(movement);
 				ATP--;
 			}
-			System.out.println(turn);
+			turn++;
+			ATP=3;
 		}
 	}
 }
