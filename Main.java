@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args){
+		int ATP=3;
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Grid map=new Grid();
@@ -18,7 +19,10 @@ public class Main {
 		String movement;
 		while(!map.gameOver){//TODO: add win/lose and change this
 			movement=k.nextLine();
-			map.update(movement);
+			ATP=3;
+			while(ATP>0){
+				map.update(movement);
+			}
 		}
 	}
 }
