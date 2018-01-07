@@ -22,6 +22,7 @@ public class Main {
 			ATP=3;
 			while(ATP>0){
 				map.update(movement);
+				ATP--;
 			}
 		}
 	}
