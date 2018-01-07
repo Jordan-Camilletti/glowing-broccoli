@@ -42,27 +42,31 @@ public class Grid {
 	/*public void setEmpty(){//Creates the grid and it's components
 		
 	}*/
-	public void update(String wrd){//updates and changes the map
+	public void update(String wrd,int ATP){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
 			if(this.player[0]>2){
 				this.player[0]-=1;
+				ATP--;
 			}
 			break;
 		case "D": 
 			if(this.player[0]<=6){
 				this.player[0]+=1;
+				ATP--;
 			}
 			break;
 		case "L": 
 			if(this.player[1]>2){
 				this.player[1]-=1;
+				ATP--;
 			}
 			break;
 		case "R": 
 			if(this.player[1]<=6){
 				this.player[1]+=1;
+				ATP--;
 			}
 			break;
 		case "QUIT":
