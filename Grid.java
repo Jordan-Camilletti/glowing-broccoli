@@ -42,7 +42,7 @@ public class Grid {
 	/*public void setEmpty(){//Creates the grid and it's components
 		
 	}*/
-	public void update(String wrd,int ATP){//updates and changes the map
+	public int update(String wrd,int ATP){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
@@ -76,5 +76,6 @@ public class Grid {
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
 		this.grid[this.player[0]][this.player[1]]='B';
 		this.l=showMap();
+		return(ATP);
 	}
 }
