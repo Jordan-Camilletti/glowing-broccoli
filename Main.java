@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args){
-		int ATP=3,turn=0;;
+		int ATP=3,turn=1;
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Grid map=new Grid();
