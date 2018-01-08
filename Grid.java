@@ -76,6 +76,7 @@ public class Grid {
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
 		this.grid[this.player[0]][this.player[1]]='B';
 		this.l=showMap();
+		if(this.playerSpot=='^') ATP--;
 		return(ATP);
 	}
 }
