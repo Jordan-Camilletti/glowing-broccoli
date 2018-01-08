@@ -2,7 +2,7 @@
 a simple work in progress text game I'm creating for the fun of it
 
 key:
-B=The Glowing Broccoli(you)
+B=The Glowing Broccoli(you) \n
 ^=Mountain(takes 2 ATP to enter)
 #=Map Edge
 O=plain(takes 1 ATP to enter)
