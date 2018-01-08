@@ -22,7 +22,6 @@ public class Main {
 			while(ATP>0){
 				movement=k.nextLine();
 				ATP=map.update(movement,ATP);
-				System.out.print(ATP);
 			}
 			turn++;
 			ATP=3;
