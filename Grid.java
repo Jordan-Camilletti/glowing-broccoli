@@ -24,14 +24,16 @@ public class Grid {
 		this.player[1]=2;//x
 		this.grid[this.player[0]][this.player[1]]='B';
 	}
-	public JLabel showMap(){//returns a JLabel that outputs the grid visible to the player
+	public JLabel showMap(int ATP, int turn){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
 		for(int n1=this.player[0]-2;n1<=this.player[0]+2;n1++){
 			for(int n2=this.player[1]-2;n2<=this.player[1]+2;n2++){
 				s=s+this.grid[n1][n2];//TODO: change this so that the visible map follows the player
-				//if(this.grid[n1][n2]=='B'){
-				//System.out.print(n1+" "+n2+"\n");
-				//}
+				if(n1==this.player[0]-2 && n2==this.player[1]+1){
+					s=s+" Turn: "+turn;
+				}else if(n1==this.player[0]-1 && n2==this.player[1]+1){
+					s=s+" ATP: :"+ATP;
+				}
 			}
 			s=s+"<br/>";
 		}
