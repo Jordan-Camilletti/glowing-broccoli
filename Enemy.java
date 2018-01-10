@@ -8,7 +8,7 @@ public class Enemy {
 	private int[] location=new int[2];
 	public Enemy(){
 		Random rnd=new Random();
-		location[0]=rnd.nextInt(10)+2;//2 and 10 inclusive
-		location[1]=rnd.nextInt(10)+2;
+		location[0]=rnd.nextInt(7)+2;//2 and 10 inclusive
+		location[1]=rnd.nextInt(7)+2;
 	}
 }
