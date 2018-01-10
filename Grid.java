@@ -5,11 +5,11 @@ package glowingBroccoli;
 import javax.swing.JLabel;
 
 public class Grid {
-	public char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
-	public JLabel l=new JLabel();
-	public int[] player=new int[2];
+	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
+	private JLabel l=new JLabel();
+	private int[] player=new int[2];
+	private char playerSpot='O';//this is the spot the player is standing on
 	public boolean gameOver=false;
-	public char playerSpot='O';//this is the spot the player is standing on
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -77,8 +77,8 @@ public class Grid {
 		}
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
 		this.grid[this.player[0]][this.player[1]]='B';
-		this.l=showMap(ATP,turn);
 		if(this.playerSpot=='^') ATP--;
+		this.l=showMap(ATP,turn);
 		return(ATP);
 	}
 }
