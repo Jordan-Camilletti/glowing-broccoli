@@ -6,7 +6,7 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class GlowingBroccoli{
+public class GlowingBroccoli {
 	public static void main(String[] args){
 		int ATP=3,turn=1;
 		JFrame f=new JFrame("frame");
