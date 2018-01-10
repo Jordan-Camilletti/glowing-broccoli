@@ -5,14 +5,13 @@ package glowingBroccoli;
 import javax.swing.JLabel;
 
 public class Grid {
-	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
+	private char[][] grid=new char[10][10];//complete grid, not all is seen at once
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
 	private char playerSpot='O';//this is the spot the player is standing on
-	public boolean gameOver=false;
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
-			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
+			if(i/10==0||i/10==9||i%10==0||i%10==9){
 				this.grid[i/10][i%10]='#';
 			}else if(Math.random()>=0.9){
 				this.grid[i/10][i%10]='^';
@@ -24,16 +23,11 @@ public class Grid {
 		this.player[1]=2;//x
 		this.grid[this.player[0]][this.player[1]]='B';
 	}
-	public JLabel showMap(int ATP, int turn){//returns a JLabel that outputs the grid visible to the player
+	public JLabel showMap(){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
-		for(int n1=this.player[0]-2;n1<=this.player[0]+2;n1++){
-			for(int n2=this.player[1]-2;n2<=this.player[1]+2;n2++){
+		for(int n1=0;n1<5;n1++){
+			for(int n2=0;n2<5;n2++){
 				s=s+this.grid[n1][n2];//TODO: change this so that the visible map follows the player
-				if(n1==this.player[0]-2 && n2==this.player[1]+2){
-					s=s+" Turn: "+turn;
-				}else if(n1==this.player[0]-1 && n2==this.player[1]+2){
-					s=s+" ATP: "+(ATP+1);
-				}
 			}
 			s=s+"<br/>";
 		}
@@ -41,44 +35,41 @@ public class Grid {
 		this.l.setText(s+"</html>");
 		return(l);
 	}
-	/*public void setEmpty(){//Creates the grid and it's components
-		
-	}*/
-	public int update(String wrd,int ATP,int turn){//updates and changes the map
+        public char getSpot(int y,int x){
+            return(this.grid[y][x]);
+        }
+	public boolean endGame(){
+		return(true);//used for ending game	
+	}
+	public void update(String wrd){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
-			if(this.player[0]>2){
+			if(this.player[0]>1){
 				this.player[0]-=1;
-				ATP--;
 			}
 			break;
 		case "D": 
-			if(this.player[0]<=6){
+			if(this.player[0]<8){
 				this.player[0]+=1;
-				ATP--;
 			}
 			break;
 		case "L": 
-			if(this.player[1]>2){
+			if(this.player[1]>1){
 				this.player[1]-=1;
-				ATP--;
 			}
 			break;
 		case "R": 
-			if(this.player[1]<=6){
+			if(this.player[1]<8){
 				this.player[1]+=1;
-				ATP--;
 			}
 			break;
 		case "QUIT":
-			gameOver=true;
+			endGame();
 			break;
 		}
 		this.playerSpot=this.grid[this.player[0]][this.player[1]];
 		this.grid[this.player[0]][this.player[1]]='B';
-		if(this.playerSpot=='^') ATP--;
-		this.l=showMap(ATP,turn);
-		return(ATP);
+		this.l=showMap();
 	}
 }
