@@ -5,6 +5,8 @@ key:
 
 B=The Glowing Broccoli(you)
 
+S=Sugar(enemy)
+
 ^=Mountain(takes 2 ATP to enter)
 
 #=Map Edge
