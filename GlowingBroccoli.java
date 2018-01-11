@@ -17,7 +17,7 @@ public class GlowingBroccoli {
 		f.setVisible(true);
 		Scanner k=new Scanner(System.in);
 		String movement;
-		while(!map.gameOver){//TODO: add win/lose and change this
+		while(!map.gameOver()){//TODO: add win/lose and change this
 			System.out.println("Turn " + turn);
 			while(ATP>0){
 				movement=k.nextLine();
