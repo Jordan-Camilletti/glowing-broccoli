@@ -9,7 +9,7 @@ public class Grid {
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
 	private char playerSpot='O';//this is the spot the player is standing on
-	private boolean endGame=true;
+	private boolean endGame=false;
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -23,6 +23,12 @@ public class Grid {
 		this.player[0]=2;//y
 		this.player[1]=2;//x
 		this.grid[this.player[0]][this.player[1]]='B';
+	}
+	public char getSpot(int y,int x){
+		return(this.grid[y][x]);
+	}
+	public boolean gameOver(){
+		return(endGame);
 	}
 	public JLabel showMap(int ATP, int turn){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
@@ -40,9 +46,6 @@ public class Grid {
 		s=s+"</html>";
 		this.l.setText(s+"</html>");
 		return(l);
-	}
-	public boolean gameOver(){
-		return(endGame);
 	}
 	public int update(String wrd,int ATP,int turn){//updates and changes the map
 		this.grid[this.player[0]][this.player[1]]=this.playerSpot;
