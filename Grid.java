@@ -10,6 +10,9 @@ public class Grid {
 	private int[] player=new int[2];
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
+	
+	private Enemy TEST01;
+	
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -23,6 +26,10 @@ public class Grid {
 		this.player[0]=2;//y
 		this.player[1]=2;//x
 		this.grid[this.player[0]][this.player[1]]='B';
+		
+		TEST01=new Enemy(this.grid);
+		this.grid[this.TEST01.getLoc()[0]][this.TEST01.getLoc()[1]]='S';
+		
 	}
 	public char getSpot(int y,int x){
 		return(this.grid[y][x]);
@@ -34,7 +41,7 @@ public class Grid {
 		String s="<html>";
 		for(int n1=this.player[0]-2;n1<=this.player[0]+2;n1++){
 			for(int n2=this.player[1]-2;n2<=this.player[1]+2;n2++){
-				s=s+this.grid[n1][n2];//TODO: change this so that the visible map follows the player
+				s=s+this.grid[n1][n2];
 				if(n1==this.player[0]-2 && n2==this.player[1]+2){
 					s=s+" Turn: "+turn;
 				}else if(n1==this.player[0]-1 && n2==this.player[1]+2){
