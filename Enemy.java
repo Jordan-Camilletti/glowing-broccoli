@@ -23,7 +23,7 @@ public class Enemy {
 	public void move(){
 		int movement=rnd.nextInt(4);
 		while(()||()||()||()){
-			
+			movement=rnd.nextInt(4);
 		}
 		if(movement==0){//move up
 			if(){
