@@ -21,7 +21,7 @@ public class Enemy {
 		return(loc);
 	}
 	public void move(){
-		int movement=rnd.nextInt(3);
+		int movement=rnd.nextInt(4);
 		if(movement==0){//move up
 			if(){
 				
@@ -40,12 +40,14 @@ public class Enemy {
 			}else{
 				
 			}
-		}else{//move left
+		}else if(movement==3){//move left
 			if(){
 				
 			}else{
 				
 			}
+		}else{//stay in place
+			
 		}
 	}
 }
