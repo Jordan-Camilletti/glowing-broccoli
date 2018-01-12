@@ -11,7 +11,7 @@ public class Enemy {
 		Random rnd=new Random();
 		loc[0]=2;
 		loc[1]=2;
-		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'){
+		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
 			loc[0]=rnd.nextInt(9)+2;
 			loc[1]=rnd.nextInt(9)+2;
 		}
@@ -19,5 +19,8 @@ public class Enemy {
 	}
 	public int[] getLoc(){
 		return(loc);
+	}
+	public void move(){
+		int 
 	}
 }
