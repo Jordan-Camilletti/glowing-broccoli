@@ -7,8 +7,8 @@ import java.util.Random;
 public class Enemy {
 	private int[] loc=new int[2];//enemy location
 	private char enemySpot='O';
+	private Random rnd=new Random();
 	public Enemy(char[][] map){
-		Random rnd=new Random();
 		loc[0]=2;
 		loc[1]=2;
 		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
@@ -21,6 +21,31 @@ public class Enemy {
 		return(loc);
 	}
 	public void move(){
-		int 
+		int movement=rnd.nextInt(3);
+		if(movement==0){//move up
+			if(){
+				
+			}else{
+				
+			}
+		}else if(movement==1){//move right
+			if(){
+				
+			}else{
+				
+			}
+		}else if(movement==2){//move down
+			if(){
+				
+			}else{
+				
+			}
+		}else{//move left
+			if(){
+				
+			}else{
+				
+			}
+		}
 	}
 }
