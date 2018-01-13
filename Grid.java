@@ -11,7 +11,7 @@ public class Grid {
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
 	
-	private Enemy TEST01;
+	public Enemy TEST01;
 	
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
@@ -39,6 +39,9 @@ public class Grid {
 	}
 	public JLabel showMap(int ATP, int turn){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
+		if(ATP==1){
+			TEST01.move();
+		}
 		for(int n1=this.player[0]-2;n1<=this.player[0]+2;n1++){
 			for(int n2=this.player[1]-2;n2<=this.player[1]+2;n2++){
 				s=s+this.grid[n1][n2];
