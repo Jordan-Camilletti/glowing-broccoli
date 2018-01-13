@@ -22,11 +22,11 @@ public class Enemy {
 	}
 	public void move(){
 		int movement=rnd.nextInt(4);
-		while(()||()||()||()){
+		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>8)||(movement==2&&loc[1]>8)||(movement==3&&loc[0]<3)){
 			movement=rnd.nextInt(4);
 		}
 		if(movement==0){//move up
-			if(){
+			if(loc[0]>2){
 				
 			}else{
 				
