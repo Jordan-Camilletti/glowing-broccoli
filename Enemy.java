@@ -24,12 +24,12 @@ public class Enemy {
 		int movement=rnd.nextInt(4);
 		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>=8)||(movement==2&&loc[1]>=8)||(movement==3&&loc[0]<3)){
 			movement=rnd.nextInt(4);
-			System.out.println("X");
+			System.out.println(movement);
 		}
 		if(movement==0){//move up
 			loc[0]-=1;
 		}else if(movement==1){//move right
-			loc[1]+=1;//TODO: add in enemySpot
+			loc[1]+=1;
 		}else if(movement==2){//move down
 			loc[0]+=1;
 		}else if(movement==3){//move left
