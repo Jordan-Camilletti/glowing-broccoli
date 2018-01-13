@@ -36,5 +36,6 @@ public class Enemy {
 		}else{//stay in place
 			
 		}
+		//return(loc);
 	}
 }
