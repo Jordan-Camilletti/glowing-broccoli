@@ -26,29 +26,13 @@ public class Enemy {
 			movement=rnd.nextInt(4);
 		}
 		if(movement==0){//move up
-			if(loc[0]>2){
-				
-			}else{
-				
-			}
+			loc[0]-=1;
 		}else if(movement==1){//move right
-			if(){
-				
-			}else{
-				
-			}
+			loc[1]+=1;
 		}else if(movement==2){//move down
-			if(){
-				
-			}else{
-				
-			}
+			loc[0]+=1;
 		}else if(movement==3){//move left
-			if(){
-				
-			}else{
-				
-			}
+			loc[1]-=1;
 		}else{//stay in place
 			
 		}
