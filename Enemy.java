@@ -29,7 +29,7 @@ public class Enemy {
 		if(movement==0){//move up
 			loc[0]-=1;
 		}else if(movement==1){//move right
-			loc[1]+=1;
+			loc[1]+=1;//TODO: add in enemySpot
 		}else if(movement==2){//move down
 			loc[0]+=1;
 		}else if(movement==3){//move left
