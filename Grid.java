@@ -89,6 +89,9 @@ public class Grid {
 		enemies[0].move(grid);
 		grid[enemies[0].getLoc()[0]][enemies[0].getLoc()[1]]='S';//gave out of bounds exception
 		if(playerSpot=='^') ATP--;
+		if(player[0]==enemies[0].getLoc()[0] && player[1]==enemies[0].getLoc()[1]){//attack
+			
+		}
 		l=showMap(ATP,turn);
 		return(ATP);
 	}
