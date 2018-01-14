@@ -20,11 +20,13 @@ public class Enemy {
 	public int[] getLoc(){
 		return(loc);
 	}
-	public void move(){
-		int movement=rnd.nextInt(4);
+	public char getSpot(){
+		return(enemySpot);
+	}
+	public void move(char[][] grid){
+		int movement=rnd.nextInt(5);
 		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>=8)||(movement==2&&loc[1]>=8)||(movement==3&&loc[0]<3)){
-			movement=rnd.nextInt(4);
-			System.out.println(movement);
+			movement=rnd.nextInt(5);
 		}
 		if(movement==0){//move up
 			loc[0]-=1;
@@ -34,9 +36,7 @@ public class Enemy {
 			loc[0]+=1;
 		}else if(movement==3){//move left
 			loc[1]-=1;
-		}else{//stay in place
-			
 		}
-		//return(loc);
+		enemySpot=grid[loc[0]][loc[1]];
 	}
 }
