@@ -23,7 +23,7 @@ public class Enemy {
 	public char getSpot(){
 		return(enemySpot);
 	}
-	/*public void move(char[][] grid){
+	public void move(char[][] grid){
 		int movement=rnd.nextInt(5);
 		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>6)||(movement==2&&loc[1]>6)||(movement==3&&loc[0]<3)){
 			movement=rnd.nextInt(5);
@@ -38,5 +38,5 @@ public class Enemy {
 			loc[1]-=1;
 		}
 		enemySpot=grid[loc[0]][loc[1]];
-	}*/
+	}
 }
