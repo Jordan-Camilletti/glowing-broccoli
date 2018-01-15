@@ -6,10 +6,7 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class GlowingBroccoli {
-	/*public char getSpot(char[][] map,int y,int x){
-		return(map[y][x]);
-	}*/
+public class GlowingBroccoli{
 	public static void main(String[] args){
 		int ATP=3,turn=1;
 		JFrame f=new JFrame("frame");
@@ -20,7 +17,7 @@ public class GlowingBroccoli {
 		f.setVisible(true);
 		Scanner k=new Scanner(System.in);
 		String movement;
-		while(!map.gameOver()){//TODO: add win/lose and change this
+		while(!map.gameOver()){
 			System.out.println("Turn " + turn);
 			while(ATP>0){
 				movement=k.nextLine();
