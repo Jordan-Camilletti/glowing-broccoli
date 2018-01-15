@@ -11,7 +11,7 @@ public class Grid {
 	private int playerHP=5;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
-	private Enemy[] enemies=new Enemy[1];
+	private Enemy[] enemies=new Enemy[5];
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -25,10 +25,10 @@ public class Grid {
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
-		
-		enemies[0]=new Enemy(grid);
-		grid[enemies[0].getLoc()[0]][enemies[0].getLoc()[1]]='S';
-		
+		for(int n=0;n<enemies.length;n++){
+			enemies[n]=new Enemy(grid);
+			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
+		}
 	}
 	public char getSpot(int y,int x){
 		return(grid[y][x]);
@@ -86,13 +86,17 @@ public class Grid {
 		}
 		playerSpot=grid[player[0]][player[1]];
 		grid[player[0]][player[1]]='B';
-		grid[enemies[0].getLoc()[0]][enemies[0].getLoc()[1]]=enemies[0].getSpot();
-		enemies[0].move(grid);
-		grid[enemies[0].getLoc()[0]][enemies[0].getLoc()[1]]='S';//gave out of bounds exception
 		if(playerSpot=='^') ATP--;
-		if(player[0]==enemies[0].getLoc()[0] && player[1]==enemies[0].getLoc()[1]){//attack
-			playerHP--;
+		
+		for(int n=0;n<enemies.length;n++){
+			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
+			enemies[n].move(grid);
+			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';//gave out of bounds exception
+			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1]){//attack
+				playerHP--;
+			}
 		}
+		
 		l=showMap(ATP,turn);
 		return(ATP);
 	}
