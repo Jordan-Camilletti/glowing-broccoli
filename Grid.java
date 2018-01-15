@@ -8,6 +8,7 @@ public class Grid {
 	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
+	private int playerHP=5;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
 	private Enemy[] enemies=new Enemy[1];
@@ -33,7 +34,7 @@ public class Grid {
 		return(grid[y][x]);
 	}
 	public boolean gameOver(){
-		return(endGame);
+		return(playerHP<=0);
 	}
 	public JLabel showMap(int ATP, int turn){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
@@ -90,7 +91,7 @@ public class Grid {
 		grid[enemies[0].getLoc()[0]][enemies[0].getLoc()[1]]='S';//gave out of bounds exception
 		if(playerSpot=='^') ATP--;
 		if(player[0]==enemies[0].getLoc()[0] && player[1]==enemies[0].getLoc()[1]){//attack
-			
+			playerHP--;
 		}
 		l=showMap(ATP,turn);
 		return(ATP);
