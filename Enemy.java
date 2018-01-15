@@ -12,8 +12,8 @@ public class Enemy {
 		loc[0]=2;
 		loc[1]=2;
 		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
-			loc[0]=rnd.nextInt(9)+2;
-			loc[1]=rnd.nextInt(9)+2;
+			loc[0]=rnd.nextInt(6)+2;
+			loc[1]=rnd.nextInt(6)+2;
 		}
 		enemySpot=map[loc[0]][loc[1]];
 	}
@@ -23,7 +23,7 @@ public class Enemy {
 	public char getSpot(){
 		return(enemySpot);
 	}
-	public void move(char[][] grid){
+	/*public void move(char[][] grid){
 		int movement=rnd.nextInt(5);
 		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>=8)||(movement==2&&loc[1]>=8)||(movement==3&&loc[0]<3)){
 			movement=rnd.nextInt(5);
@@ -38,5 +38,5 @@ public class Enemy {
 			loc[1]-=1;
 		}
 		enemySpot=grid[loc[0]][loc[1]];
-	}
+	}*/
 }
