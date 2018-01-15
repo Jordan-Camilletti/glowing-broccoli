@@ -25,7 +25,7 @@ public class Enemy {
 	}
 	/*public void move(char[][] grid){
 		int movement=rnd.nextInt(5);
-		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>=8)||(movement==2&&loc[1]>=8)||(movement==3&&loc[0]<3)){
+		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>6)||(movement==2&&loc[1]>6)||(movement==3&&loc[0]<3)){
 			movement=rnd.nextInt(5);
 		}
 		if(movement==0){//move up
