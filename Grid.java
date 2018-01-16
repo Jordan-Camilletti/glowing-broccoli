@@ -93,7 +93,9 @@ public class Grid {
 		
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
+			if(player.ATP==0){
 			enemies[n].move(grid);//TODO: work on enemySpot
+			}
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';//gave out of bounds exception
 			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1]){//attack
 				playerHP--;
