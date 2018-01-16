@@ -24,17 +24,14 @@ public class Enemy {
 		return(enemySpot);
 	}
 	public void move(char[][] grid){
-		int movement=rnd.nextInt(5);
-		while((movement==0&&loc[0]<3)||(movement==1&&loc[1]>6)||(movement==2&&loc[1]>6)||(movement==3&&loc[0]<3)){
-			movement=rnd.nextInt(5);//TODO: actually make this work
-		}
-		if(movement==0){//move up
+		int movement=rnd.nextInt(9);
+		if(movement<2 && grid[loc[0]-1][loc[1]]!='#'){//move up
 			loc[0]-=1;
-		}else if(movement==1){//move right
+		}else if(movement<4 && grid[loc[0]][loc[1]+1]!='#'){//move right
 			loc[1]+=1;
-		}else if(movement==2){//move down
+		}else if(movement<6 && grid[loc[0]+1][loc[1]]!='#'){//move down
 			loc[0]+=1;
-		}else if(movement==3){//move left
+		}else if(movement<8 && grid[loc[0]][loc[1]-1]!='#'){//move left
 			loc[1]-=1;
 		}
 		enemySpot=grid[loc[0]][loc[1]];
