@@ -11,9 +11,7 @@ public class Grid {
 	private int playerHP=5;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
-	
 	private Enemy[] enemies=new Enemy[5];
-	
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -57,7 +55,7 @@ public class Grid {
 		l.setText(s+"</html>");
 		return(l);
 	}
-	public int update(String wrd,int ATP,int turn){//updates and changes the map
+	public int playerMove(String wrd,int ATP,int turn){//updates and changes the map
 		grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
@@ -90,20 +88,21 @@ public class Grid {
 		}
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
-		
-		for(int n=0;n<enemies.length;n++){
+		/*for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP==0){
-				enemies[n].move(grid);//TODO: work on enemySpot
+			if(ATP<1){
+				enemies[n].move(grid);
 			}
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';//gave out of bounds exception
 			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1]){//attack
-				playerHP--;
+				
 			}
-		}
-		
+		}*/
 		grid[player[0]][player[1]]='B';
 		l=showMap(ATP,turn);
 		return(ATP);
+	}
+	public void enemyMove(){
+		
 	}
 }
