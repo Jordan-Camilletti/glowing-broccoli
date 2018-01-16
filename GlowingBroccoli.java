@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class GlowingBroccoli{
 	public static void main(String[] args){
-		int ATP=3,turn=1;
+		int ATP=2,turn=1;
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Grid map=new Grid();
@@ -21,10 +21,11 @@ public class GlowingBroccoli{
 			System.out.println("Turn " + turn);
 			while(ATP>0){
 				movement=k.nextLine();
-				ATP=map.update(movement,ATP,turn);
+				ATP=map.playerMove(movement,ATP,turn);
 			}
 			turn++;
 			ATP=3;
+			map.enemyMove();
 		}
 	}
 }
