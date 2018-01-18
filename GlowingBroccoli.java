@@ -4,7 +4,6 @@ package glowingBroccoli;
 
 import java.util.Scanner;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class GlowingBroccoli{
 	public static void main(String[] args){
