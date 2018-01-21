@@ -11,7 +11,8 @@ public class Grid {
 	private int playerHP=5;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
-	private Enemy[] enemies=new Enemy[1];
+	private Enemy[] enemies=new Enemy[6];
+	private Health[] heals=new Health[6];
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -90,7 +91,7 @@ public class Grid {
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP==3)
+			if(ATP>=2)
 				enemies[n].move(grid);
 			if(enemies[n].isAlive())
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
