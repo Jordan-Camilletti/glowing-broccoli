@@ -1,7 +1,5 @@
 /*Created by Jordan Camilletti*/
 
-/*Created by Jordan Camilletti*/
-
 package glowingBroccoli;
 
 import javax.swing.JLabel;
@@ -49,6 +47,8 @@ public class Grid {
 					s=s+" Turn: "+turn;
 				}else if(n1==player[0]-1 && n2==player[1]+2){
 					s=s+" ATP: "+(ATP+1);
+				}else if(n1==player[0] && n2==player[1]+2){
+					s=s+" HP: "+(playerHP);
 				}
 			}
 			s=s+"<br/>";
