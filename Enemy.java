@@ -7,8 +7,13 @@ import java.util.Random;
 public class Enemy {
 	private int[] loc=new int[2];//enemy location
 	private char enemySpot='O';
+	private boolean alive;
 	private Random rnd=new Random();
 	public Enemy(char[][] map){
+		create(map);
+	}
+	public void create(char[][] map){
+		alive=true;
 		loc[0]=2;
 		loc[1]=2;
 		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
@@ -35,5 +40,11 @@ public class Enemy {
 			loc[1]-=1;
 		}
 		enemySpot=grid[loc[0]][loc[1]];
+	}
+	public boolean isAlive(){
+		return(alive);
+	}
+	public void kill(){
+		alive=false;
 	}
 }
