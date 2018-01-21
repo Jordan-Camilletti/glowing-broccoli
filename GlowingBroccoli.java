@@ -24,7 +24,6 @@ public class GlowingBroccoli{
 			}
 			turn++;
 			ATP=3;
-			map.enemyMove();
 		}
 	}
 }
