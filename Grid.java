@@ -11,7 +11,7 @@ public class Grid {
 	private int playerHP=5;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
-	private Enemy[] enemies=new Enemy[5];
+	private Enemy[] enemies=new Enemy[1];
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -25,12 +25,10 @@ public class Grid {
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
-		
 		for(int n=0;n<enemies.length;n++){
 			enemies[n]=new Enemy(grid);
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
 		}
-		
 	}
 	public char getSpot(int y,int x){
 		return(grid[y][x]);
@@ -46,9 +44,9 @@ public class Grid {
 				if(n1==player[0]-2 && n2==player[1]+2){
 					s=s+" Turn: "+turn;
 				}else if(n1==player[0]-1 && n2==player[1]+2){
-					s=s+" ATP: "+(ATP+1);
-				}else if(n1==player[0] && n2==player[1]+2){
 					s=s+" HP: "+(playerHP);
+				}else if(n1==player[0] && n2==player[1]+2){
+					s=s+" ATP: "+(ATP+1);
 				}
 			}
 			s=s+"<br/>";
@@ -92,7 +90,7 @@ public class Grid {
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP<1)
+			if(ATP==3)
 				enemies[n].move(grid);
 			if(enemies[n].isAlive())
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
