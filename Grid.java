@@ -1,5 +1,7 @@
 /*Created by Jordan Camilletti*/
 
+/*Created by Jordan Camilletti*/
+
 package glowingBroccoli;
 
 import javax.swing.JLabel;
@@ -88,21 +90,19 @@ public class Grid {
 		}
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
-		/*for(int n=0;n<enemies.length;n++){
+		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP<1){
+			if(ATP<1)
 				enemies[n].move(grid);
+			if(enemies[n].isAlive())
+				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
+			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1] && enemies[n].isAlive()){//attack
+				playerHP--;
+				enemies[n].kill();
 			}
-			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';//gave out of bounds exception
-			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1]){//attack
-				
-			}
-		}*/
+		}
 		grid[player[0]][player[1]]='B';
 		l=showMap(ATP,turn);
 		return(ATP);
-	}
-	public void enemyMove(){
-		
 	}
 }
