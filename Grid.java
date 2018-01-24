@@ -93,8 +93,11 @@ public class Grid {
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
 			if(ATP>=2)
 				enemies[n].move(grid);
-			if(enemies[n].isAlive())
+			if(enemies[n].isAlive()){
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
+                        }else{//Bug: enemies that move close to their death often leave 'S' on grid, 'S' has no effects and needs to be removed
+                                grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
+                        }
 			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1] && enemies[n].isAlive()){//attack
 				playerHP--;
 				enemies[n].kill();
