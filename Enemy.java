@@ -4,7 +4,7 @@ package glowingBroccoli;
 
 import java.util.Random;
 
-public class Enemy {
+public class Enemy{
 	private int[] loc=new int[2];//enemy location
 	private char enemySpot='O';
 	private boolean alive;
@@ -29,14 +29,14 @@ public class Enemy {
 		return(enemySpot);
 	}
 	public void move(char[][] grid){
-		int movement=rnd.nextInt(9);
-		if(movement<2 && grid[loc[0]-1][loc[1]]!='#'){//move up
+		int movement=rnd.nextInt(4);
+		if(movement==0 && grid[loc[0]-1][loc[1]]!='#'){//move up
 			loc[0]-=1;
-		}else if(movement<4 && grid[loc[0]][loc[1]+1]!='#'){//move right
+		}else if(movement==1 && grid[loc[0]][loc[1]+1]!='#'){//move right
 			loc[1]+=1;
-		}else if(movement<6 && grid[loc[0]+1][loc[1]]!='#'){//move down
+		}else if(movement==2 && grid[loc[0]+1][loc[1]]!='#'){//move down
 			loc[0]+=1;
-		}else if(movement<8 && grid[loc[0]][loc[1]-1]!='#'){//move left
+		}else if(movement==3 && grid[loc[0]][loc[1]-1]!='#'){//move left
 			loc[1]-=1;
 		}
 		enemySpot=grid[loc[0]][loc[1]];
