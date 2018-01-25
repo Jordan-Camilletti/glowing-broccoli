@@ -94,7 +94,10 @@ public class Grid {
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<heals.length;n++){
-			
+			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
+			if(player[0]==heals[n].getLoc()[0] && ){
+				
+			}
 		}
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
