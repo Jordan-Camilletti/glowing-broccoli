@@ -26,6 +26,10 @@ public class Grid {
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
+		for(int n=0;n<heals.length;n++){
+			heals[n]=new Heal(grid);
+			gird[heals[n].getLoc()[0]][heal[n].getLoc()[1]]='H';
+		}
 		for(int n=0;n<enemies.length;n++){
 			enemies[n]=new Enemy(grid);
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
