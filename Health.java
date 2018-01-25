@@ -26,7 +26,7 @@ public class Health{
 		used=true;
 	}
 	public int[] getLoc(){
-	return(loc);
+		return(loc);
 	}
 	public boolean getUsed(){
 		return(used);
