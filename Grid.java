@@ -4,7 +4,7 @@ package glowingBroccoli;
 
 import javax.swing.JLabel;
 
-public class Grid {
+public class Grid{
 	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
