@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Health{
 	private int[] loc=new int[2];
-	private char healthSpot='O';vvvv
+	private char healthSpot='O';
 	private boolean used=false;
 	private Random rnd=new Random();
 	public Health(char[][] map){
