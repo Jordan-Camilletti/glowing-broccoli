@@ -5,7 +5,6 @@ package glowingBroccoli;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
-
 public class GlowingBroccoli{
 	public static void main(String[] args){
 		int ATP=2,turn=1;
