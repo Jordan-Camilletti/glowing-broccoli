@@ -95,7 +95,7 @@ public class Grid{
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<heals.length;n++){
 			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
-			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1]){
+			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1] && !heals[n].getUsed()){
 				playerHP++;
 				heals[n].use();
 			}
