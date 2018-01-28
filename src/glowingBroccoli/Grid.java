@@ -27,8 +27,8 @@ public class Grid{
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
 		for(int n=0;n<heals.length;n++){
-			heals[n]=new Heal(grid);
-			gird[heals[n].getLoc()[0]][heal[n].getLoc()[1]]='H';
+			heals[n]=new Health(grid);
+			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]='H';
 		}
 		for(int n=0;n<enemies.length;n++){
 			enemies[n]=new Enemy(grid);
@@ -94,7 +94,7 @@ public class Grid{
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<heals.length;n++){
-			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
+			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
 			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1] && !heals[n].getUsed()){
 				playerHP++;
 				heals[n].use();
