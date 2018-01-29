@@ -13,7 +13,7 @@ public class Health{
 		create(map);
 	}
 	public void create(char[][] map){
-		used=true;
+		used=false;
 		loc[0]=2;
 		loc[1]=2;
 		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){

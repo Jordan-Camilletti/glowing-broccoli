@@ -11,7 +11,7 @@ public class Grid{
 	private int playerHP=5;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean endGame=false;
-	private Enemy[] enemies=new Enemy[6];
+	private Enemy[] enemies=new Enemy[0];
 	private Health[] heals=new Health[6];
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
