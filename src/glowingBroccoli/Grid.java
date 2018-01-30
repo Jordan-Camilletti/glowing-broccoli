@@ -98,6 +98,7 @@ public class Grid{
 			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1] && !heals[n].getUsed()){
 				playerHP++;
 				heals[n].use();
+                                playerSpot=heals[n].getSpot();
 			}
 		}
 		for(int n=0;n<enemies.length;n++){
