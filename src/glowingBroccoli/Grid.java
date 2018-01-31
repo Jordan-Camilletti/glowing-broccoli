@@ -17,7 +17,7 @@ public class Grid{
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
 				grid[i/10][i%10]='#';
-			}else if(Math.random()>=0.9){
+			}else if(Math.random()>=0.85){
 				grid[i/10][i%10]='^';
 			}else{
 				grid[i/10][i%10]='O';
