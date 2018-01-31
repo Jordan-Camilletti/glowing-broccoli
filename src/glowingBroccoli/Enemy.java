@@ -14,12 +14,10 @@ public class Enemy{
 	}
 	public void create(char[][] map){
 		alive=true;
-		loc[0]=2;
-		loc[1]=2;
-		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
+		do{
 			loc[0]=rnd.nextInt(6)+2;
 			loc[1]=rnd.nextInt(6)+2;
-		}
+		}while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#');
 		enemySpot=map[loc[0]][loc[1]];
 	}
 	public int[] getLoc(){
