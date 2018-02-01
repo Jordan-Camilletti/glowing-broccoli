@@ -31,4 +31,7 @@ public class Health{
 	public boolean getUsed(){
 		return(used);
 	}
+        public char getSpot(){
+                return(healthSpot);
+        }
 }

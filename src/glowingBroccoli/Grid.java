@@ -17,7 +17,7 @@ public class Grid{
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
 				grid[i/10][i%10]='#';
-			}else if(Math.random()>=0.9){
+			}else if(Math.random()>=0.85){
 				grid[i/10][i%10]='^';
 			}else{
 				grid[i/10][i%10]='O';
@@ -61,32 +61,34 @@ public class Grid{
 		return(l);
 	}
 	public int playerMove(String wrd,int ATP,int turn){//updates and changes the map
-		grid[player[0]][player[1]]=playerSpot;
+                grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
-			if(player[0]>2){
+			if(player[0]>2 && ATP>0){
 				player[0]-=1;
 				ATP--;
 			}
 			break;
 		case "D": 
-			if(player[0]<=6){
+			if(player[0]<=6 && ATP>0){
 				player[0]+=1;
 				ATP--;
 			}
 			break;
 		case "L": 
-			if(player[1]>2){
+			if(player[1]>2 && ATP>0){
 				player[1]-=1;
 				ATP--;
 			}
 			break;
 		case "R": 
-			if(player[1]<=6){
+			if(player[1]<=6 && ATP>0){
 				player[1]+=1;
 				ATP--;
 			}
 			break;
+                case "E"://end turn
+                        break;
 		case "QUIT":
 			endGame=true;
 			break;
@@ -98,11 +100,12 @@ public class Grid{
 			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1] && !heals[n].getUsed()){
 				playerHP++;
 				heals[n].use();
+                                playerSpot=heals[n].getSpot();
 			}
 		}
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP>=2)
+			if(ATP>=2)//bug happens when player moves onto enemy same time enemy moves away
 				enemies[n].move(grid);
 			if(enemies[n].isAlive()){
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
@@ -114,8 +117,14 @@ public class Grid{
 				enemies[n].kill();
 			}
 		}
+                /*
+                if(playerSpot=='S' && 
+                */
 		grid[player[0]][player[1]]='B';
 		l=showMap(ATP,turn);
+                /*
+                System.out.print(playerSpot);
+                */
 		return(ATP);
 	}
 }
