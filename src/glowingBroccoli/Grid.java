@@ -67,25 +67,25 @@ public class Grid{
                 grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
-			if(player[0]>2 && ATP>0){
+			if(player[0]>2 && ATP>0 && playerTurn){
 				player[0]-=1;
 				ATP--;
 			}
 			break;
 		case "D": 
-			if(player[0]<=6 && ATP>0){
+			if(player[0]<=6 && ATP>0 && playerTurn){
 				player[0]+=1;
 				ATP--;
 			}
 			break;
 		case "L": 
-			if(player[1]>2 && ATP>0){
+			if(player[1]>2 && ATP>0 && playerTurn){
 				player[1]-=1;
 				ATP--;
 			}
 			break;
 		case "R": 
-			if(player[1]<=6 && ATP>0){
+			if(player[1]<=6 && ATP>0 && playerTurn){
 				player[1]+=1;
 				ATP--;
 			}
@@ -94,6 +94,10 @@ public class Grid{
                         playerTurn=false;
                         ATP=3;
                         turn++;
+                        for(Enemy n:enemies){
+                                n.move(grid);
+                        }
+                        playerTurn=true;
                         break;
 		case "QUIT":
 			endGame=true;
