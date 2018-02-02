@@ -11,4 +11,6 @@ S=Sugar(enemy)
 
 #=Map Edge
 
-O=plain(takes 1 ATP to enter)
+O=Plain(takes 1 ATP to enter)
+
+P=Protien(+1 health)
