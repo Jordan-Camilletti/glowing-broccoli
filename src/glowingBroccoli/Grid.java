@@ -9,9 +9,9 @@ public class Grid{
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
 	private int playerHP=5;
-        private int ATP=3;
+	private int ATP=3;
 	private char playerSpot='O';//this is the spot the player is standing on
-        private boolean playerTurn=true;
+	private boolean playerTurn=true;
 	private boolean endGame=false;
 	private Enemy[] enemies=new Enemy[6];
 	private Health[] heals=new Health[6];
@@ -64,7 +64,7 @@ public class Grid{
 		return(l);
 	}
 	public void playerMove(String wrd,int turn){//updates and changes the map
-                grid[player[0]][player[1]]=playerSpot;
+        grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
 			if(player[0]>2 && ATP>0 && playerTurn){
@@ -95,6 +95,7 @@ public class Grid{
                         ATP=3;
                         turn++;
                         for(Enemy n:enemies){
+                        	
                                 n.move(grid);
                         }
                         playerTurn=true;
@@ -115,8 +116,6 @@ public class Grid{
 		}
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP>=2)//bug happens when player moves onto enemy same time enemy moves away
-				enemies[n].move(grid);
 			if(enemies[n].isAlive()){
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
                         }else{//Bug: enemies that move close to their death often leave 'S' on grid, 'S' has no effects and needs to be removed

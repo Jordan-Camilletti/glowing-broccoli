@@ -28,6 +28,7 @@ public class Enemy{
 	}
 	public void move(char[][] grid){
 		int movement=rnd.nextInt(4);
+		grid[loc[0]][loc[1]]=enemySpot;
 		if(movement==0 && grid[loc[0]-1][loc[1]]!='#'){//move up
 			loc[0]-=1;
 		}else if(movement==1 && grid[loc[0]][loc[1]+1]!='#'){//move right
