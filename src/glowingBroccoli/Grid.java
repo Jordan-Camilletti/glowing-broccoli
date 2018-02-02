@@ -115,8 +115,6 @@ public class Grid{
 		}
 		for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-			if(ATP>=2)//bug happens when player moves onto enemy same time enemy moves away
-				enemies[n].move(grid);
 			if(enemies[n].isAlive()){
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
                         }else{//Bug: enemies that move close to their death often leave 'S' on grid, 'S' has no effects and needs to be removed
