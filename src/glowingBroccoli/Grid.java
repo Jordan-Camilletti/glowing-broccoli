@@ -63,7 +63,7 @@ public class Grid{
 		l.setText(s+"</html>");
 		return(l);
 	}
-	public void playerMove(String wrd,int turn){//updates and changes the map
+	public int playerMove(String wrd,int turn){//updates and changes the map
         grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
@@ -95,14 +95,14 @@ public class Grid{
                         ATP=3;
                         turn++;
                         for(Enemy n:enemies){
-                        	
-                                n.move(grid);
+                        	n.move(grid);
                         }
                         playerTurn=true;
                         break;
 		case "QUIT":
 			endGame=true;
 			break;
+		
 		}
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
@@ -126,15 +126,9 @@ public class Grid{
 				enemies[n].kill();
 			}
 		}
-                /*
-                if(playerSpot=='S' && 
-                */
 		grid[player[0]][player[1]]='B';
 		l=showMap(turn);
-                /*
-                System.out.print(playerSpot);
-                */
-		//return(ATP);
+		return(turn);
 	}
         public boolean playerTurn(){
             return(playerTurn);

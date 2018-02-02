@@ -7,8 +7,7 @@ import javax.swing.JFrame;
 
 public class GlowingBroccoli{
 	public static void main(String[] args){
-		int /*ATP=2,*/turn=1;
-                boolean pTurn=true;
+		int turn=1;
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Grid map=new Grid();
@@ -19,13 +18,9 @@ public class GlowingBroccoli{
 		String movement;
 		while(!map.gameOver()){
 			System.out.println("Turn " + turn);
-			//while(pTurn){
 				movement=k.nextLine();
-				map.playerMove(movement,turn);
-			//}
-                        /*while(enemie's turn){
-                            
-                        }*/
+				turn=map.playerMove(movement,turn);
 		}
 	}
 }
+	
