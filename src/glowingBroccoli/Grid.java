@@ -9,10 +9,13 @@ public class Grid{
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
 	private int playerHP=5;
+        private int ATP=3;
 	private char playerSpot='O';//this is the spot the player is standing on
+        private boolean playerTurn=true;
 	private boolean endGame=false;
 	private Enemy[] enemies=new Enemy[6];
 	private Health[] heals=new Health[6];
+        
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
@@ -41,7 +44,7 @@ public class Grid{
 	public boolean gameOver(){
 		return(playerHP<=0);
 	}
-	public JLabel showMap(int ATP, int turn){//returns a JLabel that outputs the grid visible to the player
+	public JLabel showMap(int turn){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
 		for(int n1=player[0]-2;n1<=player[0]+2;n1++){
 			for(int n2=player[1]-2;n2<=player[1]+2;n2++){
@@ -51,7 +54,7 @@ public class Grid{
 				}else if(n1==player[0]-1 && n2==player[1]+2){
 					s=s+" HP: "+(playerHP);
 				}else if(n1==player[0] && n2==player[1]+2){
-					s=s+" ATP: "+(ATP+1);
+					s=s+" ATP: "+(ATP);
 				}
 			}
 			s=s+"<br/>";
@@ -60,34 +63,41 @@ public class Grid{
 		l.setText(s+"</html>");
 		return(l);
 	}
-	public int playerMove(String wrd,int ATP,int turn){//updates and changes the map
+	public void playerMove(String wrd,int turn){//updates and changes the map
                 grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
-			if(player[0]>2 && ATP>0){
+			if(player[0]>2 && ATP>0 && playerTurn){
 				player[0]-=1;
 				ATP--;
 			}
 			break;
 		case "D": 
-			if(player[0]<=6 && ATP>0){
+			if(player[0]<=6 && ATP>0 && playerTurn){
 				player[0]+=1;
 				ATP--;
 			}
 			break;
 		case "L": 
-			if(player[1]>2 && ATP>0){
+			if(player[1]>2 && ATP>0 && playerTurn){
 				player[1]-=1;
 				ATP--;
 			}
 			break;
 		case "R": 
-			if(player[1]<=6 && ATP>0){
+			if(player[1]<=6 && ATP>0 && playerTurn){
 				player[1]+=1;
 				ATP--;
 			}
 			break;
                 case "E"://end turn
+                        playerTurn=false;
+                        ATP=3;
+                        turn++;
+                        for(Enemy n:enemies){
+                                n.move(grid);
+                        }
+                        playerTurn=true;
                         break;
 		case "QUIT":
 			endGame=true;
@@ -121,10 +131,17 @@ public class Grid{
                 if(playerSpot=='S' && 
                 */
 		grid[player[0]][player[1]]='B';
-		l=showMap(ATP,turn);
+		l=showMap(turn);
                 /*
                 System.out.print(playerSpot);
                 */
-		return(ATP);
+		//return(ATP);
 	}
+        public boolean playerTurn(){
+            return(playerTurn);
+        }
+        public void newTurn(){
+            ATP=3;
+            playerTurn=true;
+        }
 }
