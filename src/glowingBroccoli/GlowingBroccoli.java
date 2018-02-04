@@ -18,8 +18,8 @@ public class GlowingBroccoli{
 		String movement;
 		while(!map.gameOver()){
 			System.out.println("Turn " + turn);
-				movement=k.nextLine();
-				turn=map.playerMove(movement,turn);
+			movement=k.nextLine();
+			turn=map.playerMove(movement,turn);
 		}
 	}
 }

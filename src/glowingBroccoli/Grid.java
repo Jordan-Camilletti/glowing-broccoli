@@ -15,7 +15,6 @@ public class Grid{
 	private boolean playerTurn=true;
 	private boolean endGame=false;
 	private ArrayList<Enemy> x=new ArrayList<Enemy>();
-	
 	private Health[] heals=new Health[6];
         
 	public Grid(){
@@ -67,7 +66,7 @@ public class Grid{
 		return(l);
 	}
 	public int playerMove(String wrd,int turn){//updates and changes the map
-        grid[player[0]][player[1]]=playerSpot;
+		grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
 		case "U": 
 			if(player[0]>2 && ATP>0 && playerTurn){
@@ -93,15 +92,15 @@ public class Grid{
 				ATP--;
 			}
 			break;
-                case "E"://end turn
-                        playerTurn=false;
-                        ATP=3;
-                        turn++;
-                        for(int n=0;n<x.size();n++){
-                        	x.get(n).move(grid);
-                        }
-                        playerTurn=true;
-                        break;
+		case "E"://end turn
+			playerTurn=false;
+			ATP=3;
+			turn++;
+			for(int n=0;n<x.size();n++){
+				x.get(n).move(grid);
+			}
+			playerTurn=true;
+			break;
 		case "QUIT":
 			endGame=true;
 			break;
@@ -118,7 +117,7 @@ public class Grid{
 			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1] && !heals[n].getUsed()){
 				playerHP++;
 				heals[n].use();
-                                playerSpot=heals[n].getSpot();
+				playerSpot=heals[n].getSpot();
 			}
 		}
 		for(int n=0;n<x.size();n++){
@@ -136,12 +135,12 @@ public class Grid{
 		grid[player[0]][player[1]]='B';
 		l=showMap(turn);
 		return(turn);
-		}
-        public boolean playerTurn(){
-            return(playerTurn);
-        }
-        public void newTurn(){
-            ATP=3;
-            playerTurn=true;
-        }
+	}
+	public boolean playerTurn(){
+		return(playerTurn);
+	}
+	public void newTurn(){
+		ATP=3;
+		playerTurn=true;
+	}
 }
