@@ -94,21 +94,20 @@ public class Grid{
 			break;
 		case "E"://end turn
 			playerTurn=false;
-			ATP=3;
 			turn++;
 			for(int n=0;n<enemies.size();n++){
 				enemies.get(n).move(grid);
 			}
-			playerTurn=true;
+			for(int n=0;n<6;n++){
+				if(enemies.get(n).isAlive()){
+					enemies.add(new Enemy(grid));//might/might now work
+				}//should add an enemy for each of the 6 first enemies
+			}
+			newTurn();
 			break;
 		case "QUIT":
 			endGame=true;
 			break;
-		
-		case "OO":
-			enemies.add(new Enemy(grid));//THIS WORKS!!!!!!!!!
-			break;
-		
 		}
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
