@@ -15,11 +15,9 @@ public class Grid{
 	private boolean playerTurn=true;
 	private boolean endGame=false;
 	private ArrayList<Enemy> enemies=new ArrayList<Enemy>();
-	private Health[] heals=new Health[6];
+	private ArrayList<Health> heals=new ArrayList<Health>();
         
 	public Grid(){
-		for(int n=0;n<6;n++)
-			enemies.add(new Enemy(grid));
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
 				grid[i/10][i%10]='#';
@@ -32,13 +30,18 @@ public class Grid{
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
-		for(int n=0;n<heals.length;n++){
-			heals[n]=new Health(grid);
-			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]='P';
+		for(int n=0;n<6;n++){
+			enemies.add(new Enemy(grid));
+			heals.add(new Health(grid));
+			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
+			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
+		}
+		/*for(int n=0;n<heals.size();n++){
+			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
 		}
 		for(int n=0;n<enemies.size();n++){
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
-		}
+		}*/
 	}
 	public char getSpot(int y,int x){
 		return(grid[y][x]);
@@ -111,12 +114,12 @@ public class Grid{
 		}
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
-		for(int n=0;n<heals.length;n++){
+		for(int n=0;n<heals.size();n++){
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
-			if(player[0]==heals[n].getLoc()[0] && player[1]==heals[n].getLoc()[1] && !heals[n].getUsed()){
+			if(player[0]==heals.get(n).getLoc()[0] && player[1]==heals.get(n).getLoc()[1] && !heals.get(n).getUsed()){
 				playerHP++;
-				heals[n].use();
-				playerSpot=heals[n].getSpot();
+				heals.get(n).use();
+				playerSpot=heals.get(n).getSpot();
 			}
 		}
 		for(int n=0;n<enemies.size();n++){
