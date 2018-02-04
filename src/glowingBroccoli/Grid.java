@@ -3,6 +3,7 @@
 package glowingBroccoli;
 
 import javax.swing.JLabel;
+import java.util.*;
 
 public class Grid{
 	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
@@ -13,10 +14,18 @@ public class Grid{
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean playerTurn=true;
 	private boolean endGame=false;
-	private Enemy[] enemies=new Enemy[6];
+	
+	//private Enemy[] enemies=new Enemy[6];
+	private ArrayList<Enemy> x=new ArrayList<Enemy>();
+	
 	private Health[] heals=new Health[6];
         
 	public Grid(){
+		
+		for(int n=0;n<1;n++){
+			x.add(new Enemy(grid));
+		}
+		
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
 				grid[i/10][i%10]='#';
@@ -33,10 +42,15 @@ public class Grid{
 			heals[n]=new Health(grid);
 			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]='P';
 		}
-		for(int n=0;n<enemies.length;n++){
+		
+		/*for(int n=0;n<enemies.length;n++){
 			enemies[n]=new Enemy(grid);
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
+		}*/
+		for(int n=0;n<x.size();n++){
+			grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]='S';
 		}
+		
 	}
 	public char getSpot(int y,int x){
 		return(grid[y][x]);
@@ -94,9 +108,14 @@ public class Grid{
                         playerTurn=false;
                         ATP=3;
                         turn++;
-                        for(Enemy n:enemies){
+                        
+                        /*for(Enemy n:enemies){
                         	n.move(grid);
+                        }*/
+                        for(int n=0;n<x.size();n++){
+                        	x.get(n).move(grid);
                         }
+                        
                         playerTurn=true;
                         break;
 		case "QUIT":
@@ -114,18 +133,32 @@ public class Grid{
                                 playerSpot=heals[n].getSpot();
 			}
 		}
-		for(int n=0;n<enemies.length;n++){
+		
+		/*for(int n=0;n<enemies.length;n++){
 			grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
 			if(enemies[n].isAlive()){
 				grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]='S';
-                        }else{//Bug: enemies that move close to their death often leave 'S' on grid, 'S' has no effects and needs to be removed
-                                grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
-                        }
+            }else{//Bug: enemies that move close to their death often leave 'S' on grid, 'S' has no effects and needs to be removed
+            	grid[enemies[n].getLoc()[0]][enemies[n].getLoc()[1]]=enemies[n].getSpot();
+            }
 			if(player[0]==enemies[n].getLoc()[0] && player[1]==enemies[n].getLoc()[1] && enemies[n].isAlive()){//attack
 				playerHP--;
 				enemies[n].kill();
 			}
+		}*/
+		for(int n=0;n<x.size();n++){
+			grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]=x.get(n).getSpot();
+			if(x.get(n).isAlive()){
+				grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]='S';
+			}else{
+				grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]=x.get(n).getSpot();
+			}
+			if(player[0]==x.get(n).getLoc()[0] && player[1]==x.get(n).getLoc()[1] && x.get(n).isAlive()){
+				playerHP--;
+				x.get(n).kill();
+			}
 		}
+		
 		grid[player[0]][player[1]]='B';
 		l=showMap(turn);
 		return(turn);
