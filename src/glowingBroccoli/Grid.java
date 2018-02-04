@@ -14,12 +14,12 @@ public class Grid{
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean playerTurn=true;
 	private boolean endGame=false;
-	private ArrayList<Enemy> x=new ArrayList<Enemy>();
+	private ArrayList<Enemy> enemies=new ArrayList<Enemy>();
 	private Health[] heals=new Health[6];
         
 	public Grid(){
 		for(int n=0;n<6;n++)
-			x.add(new Enemy(grid));
+			enemies.add(new Enemy(grid));
 		for(int i=0;i<100;i++){//sets the grid as empty
 			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
 				grid[i/10][i%10]='#';
@@ -36,8 +36,8 @@ public class Grid{
 			heals[n]=new Health(grid);
 			grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]='P';
 		}
-		for(int n=0;n<x.size();n++){
-			grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]='S';
+		for(int n=0;n<enemies.size();n++){
+			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 		}
 	}
 	public char getSpot(int y,int x){
@@ -96,8 +96,8 @@ public class Grid{
 			playerTurn=false;
 			ATP=3;
 			turn++;
-			for(int n=0;n<x.size();n++){
-				x.get(n).move(grid);
+			for(int n=0;n<enemies.size();n++){
+				enemies.get(n).move(grid);
 			}
 			playerTurn=true;
 			break;
@@ -106,7 +106,7 @@ public class Grid{
 			break;
 		
 		case "OO":
-			x.add(new Enemy(grid));//THIS WORKS!!!!!!!!!
+			enemies.add(new Enemy(grid));//THIS WORKS!!!!!!!!!
 			break;
 		
 		}
@@ -120,16 +120,16 @@ public class Grid{
 				playerSpot=heals[n].getSpot();
 			}
 		}
-		for(int n=0;n<x.size();n++){
-			grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]=x.get(n).getSpot();
-			if(x.get(n).isAlive()){
-				grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]='S';
+		for(int n=0;n<enemies.size();n++){
+			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]=enemies.get(n).getSpot();
+			if(enemies.get(n).isAlive()){
+				grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			}else{
-				grid[x.get(n).getLoc()[0]][x.get(n).getLoc()[1]]=x.get(n).getSpot();
+				grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]=enemies.get(n).getSpot();
 			}
-			if(player[0]==x.get(n).getLoc()[0] && player[1]==x.get(n).getLoc()[1] && x.get(n).isAlive()){
+			if(player[0]==enemies.get(n).getLoc()[0] && player[1]==enemies.get(n).getLoc()[1] && enemies.get(n).isAlive()){
 				playerHP--;
-				x.get(n).kill();
+				enemies.get(n).kill();
 			}
 		}
 		grid[player[0]][player[1]]='B';
