@@ -64,29 +64,30 @@ public class Grid{
 	}
 	public int playerMove(String wrd,int turn){//updates and changes the map
 		grid[player[0]][player[1]]=playerSpot;
+		ATP--;
 		switch(wrd.toUpperCase()){
 		case "U": 
 			if(player[0]>2 && ATP>0 && playerTurn){
 				player[0]-=1;
-				ATP--;
+				//ATP--;
 			}
 			break;
 		case "D": 
 			if(player[0]<=6 && ATP>0 && playerTurn){
 				player[0]+=1;
-				ATP--;
+				//ATP--;
 			}
 			break;
 		case "L": 
 			if(player[1]>2 && ATP>0 && playerTurn){
 				player[1]-=1;
-				ATP--;
+				//ATP--;
 			}
 			break;
 		case "R": 
 			if(player[1]<=6 && ATP>0 && playerTurn){
 				player[1]+=1;
-				ATP--;
+				//ATP--;
 			}
 			break;
 		case "E"://end turn
