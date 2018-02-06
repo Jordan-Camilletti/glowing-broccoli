@@ -69,25 +69,21 @@ public class Grid{
 		case "U": 
 			if(player[0]>2 && ATP>0 && playerTurn){
 				player[0]-=1;
-				//ATP--;
 			}
 			break;
 		case "D": 
 			if(player[0]<=6 && ATP>0 && playerTurn){
 				player[0]+=1;
-				//ATP--;
 			}
 			break;
 		case "L": 
 			if(player[1]>2 && ATP>0 && playerTurn){
 				player[1]-=1;
-				//ATP--;
 			}
 			break;
 		case "R": 
 			if(player[1]<=6 && ATP>0 && playerTurn){
 				player[1]+=1;
-				//ATP--;
 			}
 			break;
 		case "E"://end turn
