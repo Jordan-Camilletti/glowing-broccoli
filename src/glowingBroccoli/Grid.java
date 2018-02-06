@@ -36,12 +36,6 @@ public class Grid{
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
 		}
-		/*for(int n=0;n<heals.size();n++){
-			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
-		}
-		for(int n=0;n<enemies.size();n++){
-			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
-		}*/
 	}
 	public char getSpot(int y,int x){
 		return(grid[y][x]);
