@@ -101,7 +101,7 @@ public class Grid{
 				}//should add an enemy for each of the 6 first enemies
 				if(!heals.get(n).getUsed() && turn%2!=0){
 					heals.add(new Health(grid));
-				}
+				}//should add a health pack for each of the 6 first heals
 			}
 			newTurn();
 			break;
