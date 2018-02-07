@@ -4,7 +4,7 @@ package glowingBroccoli;
 
 import java.util.Random;
 
-public class Enemy{
+public class Enemy{//will possibly change this to an extension of a base object class
 	private int[] loc=new int[2];//enemy location
 	private char enemySpot='O';
 	private boolean alive;
