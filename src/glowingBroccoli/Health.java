@@ -4,7 +4,7 @@ package glowingBroccoli;
 
 import java.util.Random;
 
-public class Health{
+public class Health{//will possibly change this to an extension of a base object class
 	private int[] loc=new int[2];
 	private char healthSpot='O';
 	private boolean used=false;
