@@ -86,6 +86,9 @@ public class Grid{
 				player[1]+=1;
 			}
 			break;
+		case "":
+			//TODO: add a way to create a broccoli minion
+			break;
 		case "E"://end turn
 			playerTurn=false;
 			turn++;
