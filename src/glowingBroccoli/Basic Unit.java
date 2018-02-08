@@ -3,5 +3,7 @@
 package glowingBroccoli;
 
 public class Basic Unit{
-  
+  public BasicUnit(){
+    
+  }
 }
