@@ -7,13 +7,13 @@ import java.util.Random;
 public class Health{//will possibly change this to an extension of a base object class
 	private int[] loc=new int[2];
 	private char healthSpot='O';
-	private boolean used=false;
+	private boolean alive=true;
 	private Random rnd=new Random();
 	public Health(char[][] map){
 		create(map);
 	}
 	public void create(char[][] map){
-		used=false;
+		alive=true;
 		loc[0]=2;
 		loc[1]=2;
 		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
@@ -23,13 +23,13 @@ public class Health{//will possibly change this to an extension of a base object
 		healthSpot=map[loc[0]][loc[1]];
 	}
 	public void use(){
-		used=true;
+		alive=false;
 	}
 	public int[] getLoc(){
 		return(loc);
 	}
-	public boolean getUsed(){
-		return(used);
+	public boolean getAlive(){
+		return(alive);
 	}
 	public char getSpot(){
 		return(healthSpot);
