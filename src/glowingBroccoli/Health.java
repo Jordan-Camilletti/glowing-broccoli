@@ -16,10 +16,10 @@ public class Health{//will possibly change this to an extension of a base object
 		alive=true;
 		loc[0]=2;
 		loc[1]=2;
-		while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#'){
+		do{
 			loc[0]=rnd.nextInt(6)+2;
 			loc[1]=rnd.nextInt(6)+2;
-		}
+		}while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#');
 		healthSpot=map[loc[0]][loc[1]];
 	}
 	public void use(){
