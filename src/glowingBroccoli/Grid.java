@@ -99,7 +99,7 @@ public class Grid{
 				if(enemies.get(n).isAlive() && turn%2==0){
 					enemies.add(new Enemy(grid));
 				}//should add an enemy for each of the 6 first enemies
-				if(!heals.get(n).getUsed() && turn%2!=0){
+				if(heals.get(n).getAlive() && turn%2!=0){
 					heals.add(new Health(grid));
 				}//should add a health pack for each of the 6 first heals
 			}
@@ -113,7 +113,7 @@ public class Grid{
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<heals.size();n++){
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
-			if(player[0]==heals.get(n).getLoc()[0] && player[1]==heals.get(n).getLoc()[1] && !heals.get(n).getUsed()){
+			if(player[0]==heals.get(n).getLoc()[0] && player[1]==heals.get(n).getLoc()[1] && heals.get(n).getAlive()){
 				playerHP++;
 				heals.get(n).use();
 				playerSpot=heals.get(n).getSpot();
