@@ -2,8 +2,14 @@
 
 package glowingBroccoli;
 
+import java.util.Random;
+
 public class BasicUnit{
-  public BasicUnit(){
+    private int[] loc=new int[2];
+    private char spot='O';
+    private boolean alive=true;
+    private Random rnd=new Random();
+    public BasicUnit(){
     
-  }
+    }
 }
