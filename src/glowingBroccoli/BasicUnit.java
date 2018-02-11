@@ -13,6 +13,6 @@ public class BasicUnit{
             create(map);
     }
     public void create(char[][] map){
-        
+            alive=true;   
     }
 }
