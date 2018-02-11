@@ -4,8 +4,11 @@ package glowingBroccoli;
 
 import java.util.Random;
 
-public class Health{//will possibly change this to an extension of a base object class
-	private int[] loc=new int[2];
+public class Health extends BasicUnit{
+	public Health(char[][] map) {
+		super(map);
+	}
+	/*private int[] loc=new int[2];
 	private char healthSpot='O';
 	private boolean alive=true;
 	private Random rnd=new Random();
@@ -31,5 +34,5 @@ public class Health{//will possibly change this to an extension of a base object
 	}
 	public boolean getAlive(){
 		return(alive);
-	}
+	}*/
 }

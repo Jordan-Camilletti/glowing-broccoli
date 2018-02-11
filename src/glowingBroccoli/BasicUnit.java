@@ -5,10 +5,10 @@ package glowingBroccoli;
 import java.util.Random;
 
 public class BasicUnit{
-    private int[] loc=new int[2];
-    private char spot='O';
-    private boolean alive=true;
-    private Random rnd=new Random();
+    protected int[] loc=new int[2];
+    protected char spot='O';
+    protected boolean alive=true;
+    protected Random rnd=new Random();
     public BasicUnit(char[][] map){
             create(map);
     }
