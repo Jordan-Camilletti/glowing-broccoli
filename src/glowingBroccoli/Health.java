@@ -14,8 +14,6 @@ public class Health{//will possibly change this to an extension of a base object
 	}
 	public void create(char[][] map){
 		alive=true;
-		loc[0]=2;
-		loc[1]=2;
 		do{
 			loc[0]=rnd.nextInt(6)+2;
 			loc[1]=rnd.nextInt(6)+2;
