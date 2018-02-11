@@ -7,7 +7,7 @@ import java.util.Random;
 public class Enemy{//will possibly change this to an extension of a base object class
 	private int[] loc=new int[2];//enemy location
 	private char enemySpot='O';
-	private boolean alive;
+	private boolean alive=true;
 	private Random rnd=new Random();
 	public Enemy(char[][] map){
 		create(map);
@@ -20,11 +20,17 @@ public class Enemy{//will possibly change this to an extension of a base object 
 		}while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#');
 		enemySpot=map[loc[0]][loc[1]];
 	}
+	public void use(){
+		alive=false;
+	}
 	public int[] getLoc(){
 		return(loc);
 	}
 	public char getSpot(){
 		return(enemySpot);
+	}
+	public boolean getAlive(){
+		return(alive);
 	}
 	public void move(char[][] grid){
 		int movement=rnd.nextInt(4);
@@ -39,11 +45,5 @@ public class Enemy{//will possibly change this to an extension of a base object 
 			loc[1]-=1;
 		}
 		enemySpot=grid[loc[0]][loc[1]];
-	}
-	public boolean isAlive(){
-		return(alive);
-	}
-	public void kill(){
-		alive=false;
 	}
 }

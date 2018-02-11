@@ -26,10 +26,10 @@ public class Health{//will possibly change this to an extension of a base object
 	public int[] getLoc(){
 		return(loc);
 	}
-	public boolean getAlive(){
-		return(alive);
-	}
 	public char getSpot(){
 		return(healthSpot);
+	}
+	public boolean getAlive(){
+		return(alive);
 	}
 }

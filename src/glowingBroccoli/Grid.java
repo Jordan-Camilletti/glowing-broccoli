@@ -96,7 +96,7 @@ public class Grid{
 				enemies.get(n).move(grid);
 			}
 			for(int n=0;n<6;n++){
-				if(enemies.get(n).isAlive() && turn%2==0){
+				if(enemies.get(n).getAlive() && turn%2==0){
 					enemies.add(new Enemy(grid));
 				}//should add an enemy for each of the 6 first enemies
 				if(heals.get(n).getAlive() && turn%2!=0){
@@ -121,14 +121,14 @@ public class Grid{
 		}
 		for(int n=0;n<enemies.size();n++){
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]=enemies.get(n).getSpot();
-			if(enemies.get(n).isAlive()){
+			if(enemies.get(n).getAlive()){
 				grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			}else{
 				grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]=enemies.get(n).getSpot();
 			}
-			if(player[0]==enemies.get(n).getLoc()[0] && player[1]==enemies.get(n).getLoc()[1] && enemies.get(n).isAlive()){
+			if(player[0]==enemies.get(n).getLoc()[0] && player[1]==enemies.get(n).getLoc()[1] && enemies.get(n).getAlive()){
 				playerHP--;
-				enemies.get(n).kill();
+				enemies.get(n).use();
 			}
 		}
 		grid[player[0]][player[1]]='B';
