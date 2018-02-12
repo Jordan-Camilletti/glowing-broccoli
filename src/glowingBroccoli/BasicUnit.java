@@ -12,8 +12,8 @@ public class BasicUnit{
     public BasicUnit(char[][] map){
             create(map);
     }
-    public void create(char[][] map){
-    	alive=true;
+	public void create(char[][] map){
+		alive=true;
 		do{
 			loc[0]=rnd.nextInt(6)+2;
 			loc[1]=rnd.nextInt(6)+2;
