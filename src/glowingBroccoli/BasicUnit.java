@@ -5,13 +5,13 @@ package glowingBroccoli;
 import java.util.Random;
 
 public class BasicUnit{
-    protected int[] loc=new int[2];
-    protected char spot='O';
-    protected boolean alive=true;
-    protected Random rnd=new Random();
-    public BasicUnit(char[][] map){
-            create(map);
-    }
+	protected int[] loc=new int[2];
+	protected char spot='O';
+	protected boolean alive=true;
+	protected Random rnd=new Random();
+	public BasicUnit(char[][] map){
+		create(map);
+	}
 	public void create(char[][] map){
 		alive=true;
 		do{
