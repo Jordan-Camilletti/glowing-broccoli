@@ -8,6 +8,7 @@ public class Health extends BasicUnit{
 	public Health(char[][] map) {
 		super(map);
 	}
+	
 	/*private int[] loc=new int[2];
 	private char healthSpot='O';
 	private boolean alive=true;

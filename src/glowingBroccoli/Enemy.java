@@ -22,6 +22,7 @@ public class Enemy extends BasicUnit{
 		}
 		spot=grid[loc[0]][loc[1]];
 	}
+	
 	/*private int[] loc=new int[2];//enemy location
 	private char enemySpot='O';
 	private boolean alive=true;
