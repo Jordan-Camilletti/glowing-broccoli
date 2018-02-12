@@ -16,6 +16,7 @@ public class Grid{
 	private boolean endGame=false;
 	private ArrayList<Enemy> enemies=new ArrayList<Enemy>();
 	private ArrayList<Health> heals=new ArrayList<Health>();
+	//private ArrayList<Clone> clones=new ArrayList<Clone>();
         
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
@@ -86,8 +87,10 @@ public class Grid{
 				player[1]+=1;
 			}
 			break;
-		case "":
-			//TODO: add a way to create a broccoli minion
+		case "C"://clone
+			if(ATP>0 && playerHP>0){
+			//	clones.add(new Clone(grid));
+			}
 			break;
 		case "E"://end turn
 			playerTurn=false;
@@ -113,6 +116,11 @@ public class Grid{
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<heals.size();n++){
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
+			if(heals.get(n).getAlive()){
+				grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
+			}else{
+				grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]=heals.get(n).getSpot();
+			}
 			if(player[0]==heals.get(n).getLoc()[0] && player[1]==heals.get(n).getLoc()[1] && heals.get(n).getAlive()){
 				playerHP++;
 				heals.get(n).use();
