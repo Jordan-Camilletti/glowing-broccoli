@@ -16,7 +16,7 @@ public class Grid{
 	private boolean endGame=false;
 	private ArrayList<Enemy> enemies=new ArrayList<Enemy>();
 	private ArrayList<Health> heals=new ArrayList<Health>();
-	//private ArrayList<Clone> clones=new ArrayList<Clone>();
+	private ArrayList<Clone> clones=new ArrayList<Clone>();
         
 	public Grid(){
 		for(int i=0;i<100;i++){//sets the grid as empty
@@ -31,7 +31,7 @@ public class Grid{
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
-		for(int n=0;n<6;n++){
+		for(int n=0;n<6;n++){//starting off with 6 heals and 6 enemies
 			enemies.add(new Enemy(grid));
 			heals.add(new Health(grid));
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
@@ -87,9 +87,9 @@ public class Grid{
 				player[1]+=1;
 			}
 			break;
-		case "C"://clone
+		case "C"://create a clone
 			if(ATP>0 && playerHP>0){
-			//	clones.add(new Clone(grid));
+				clones.add(new Clone(grid));
 			}
 			break;
 		case "E"://end turn
@@ -114,7 +114,10 @@ public class Grid{
 		}
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
-		for(int n=0;n<heals.size();n++){
+		for(int n=0;n<clones.size();n++){//updates clone position and status
+			//TODO: fill this in
+		}
+		for(int n=0;n<heals.size();n++){//updates health position and status
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
 			if(heals.get(n).getAlive()){
 				grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
@@ -127,7 +130,7 @@ public class Grid{
 				playerSpot=heals.get(n).getSpot();
 			}
 		}
-		for(int n=0;n<enemies.size();n++){
+		for(int n=0;n<enemies.size();n++){//updates enemy positions and status
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]=enemies.get(n).getSpot();
 			if(enemies.get(n).getAlive()){
 				grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
