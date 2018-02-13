@@ -44,7 +44,6 @@ public class Grid{
 	public boolean gameOver(){
 		return(playerHP<=0);
 	}
-	
 	public boolean enemyDeath(){
 		return(true);//TODO: set this up
 	}
