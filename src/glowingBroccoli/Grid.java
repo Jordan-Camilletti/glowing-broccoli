@@ -44,6 +44,17 @@ public class Grid{
 	public boolean gameOver(){
 		return(playerHP<=0);
 	}
+	
+	public boolean enemyDeath(){
+		return(true);//TODO: set this up
+	}
+	public boolean playerTurn(){
+		return(playerTurn);
+	}
+	public void newTurn(){
+		ATP=4;
+		playerTurn=true;
+	}
 	public JLabel showMap(int turn){//returns a JLabel that outputs the grid visible to the player
 		String s="<html>";
 		for(int n1=player[0]-2;n1<=player[0]+2;n1++){
@@ -145,15 +156,5 @@ public class Grid{
 		grid[player[0]][player[1]]='B';
 		l=showMap(turn);
 		return(turn);
-	}
-	public boolean enemyDeath(){
-		return(true);//TODO: set this up
-	}
-	public boolean playerTurn(){
-		return(playerTurn);
-	}
-	public void newTurn(){
-		ATP=4;
-		playerTurn=true;
 	}
 }
