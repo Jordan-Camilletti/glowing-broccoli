@@ -65,7 +65,6 @@ public class Grid{
 	}
 	public int playerMove(String wrd,int turn){//updates and changes the map
 		grid[player[0]][player[1]]=playerSpot;
-		ATP--;
 		switch(wrd.toUpperCase()){
 		case "U": 
 			if(player[0]>2 && ATP>0 && playerTurn){
@@ -112,6 +111,7 @@ public class Grid{
 			endGame=true;
 			break;
 		}
+		ATP--;
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
 		for(int n=0;n<clones.size();n++){//updates clone position and status
@@ -146,11 +146,14 @@ public class Grid{
 		l=showMap(turn);
 		return(turn);
 	}
+	public boolean enemyDeath(){
+		return(true);
+	}
 	public boolean playerTurn(){
 		return(playerTurn);
 	}
 	public void newTurn(){
-		ATP=3;
+		ATP=4;
 		playerTurn=true;
 	}
 }
