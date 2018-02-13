@@ -147,7 +147,7 @@ public class Grid{
 		return(turn);
 	}
 	public boolean enemyDeath(){
-		return(true);
+		return(true);//TODO: set this up
 	}
 	public boolean playerTurn(){
 		return(playerTurn);
