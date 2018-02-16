@@ -45,7 +45,7 @@ public class Grid{
 		return(playerHP<=0);
 	}
 	public boolean enemyDeath(){
-		return(true);//TODO: set this up
+		return(true);//TODO: set this up for clones
 	}
 	public boolean playerTurn(){
 		return(playerTurn);
@@ -60,7 +60,7 @@ public class Grid{
 			for(int n2=player[1]-2;n2<=player[1]+2;n2++){
 				s=s+grid[n1][n2];
 				if(n1==player[0]-2 && n2==player[1]+2){
-					s=s+" Turn: "+turn;
+					s=s+" Turn: "+(turn);
 				}else if(n1==player[0]-1 && n2==player[1]+2){
 					s=s+" HP: "+(playerHP);
 				}else if(n1==player[0] && n2==player[1]+2){
