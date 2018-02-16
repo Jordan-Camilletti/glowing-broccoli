@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 public class GlowingBroccoli{
 	public static void main(String[] args){
 		int turn=1;
+		Grid map=new Grid();
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Grid map=new Grid();
 		f.add(map.showMap(turn));
 		f.pack();
 		f.setVisible(true);
