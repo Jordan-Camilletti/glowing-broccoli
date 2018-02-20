@@ -44,7 +44,7 @@ public class Grid{
 	public boolean gameOver(){
 		return(playerHP<=0);
 	}
-	public boolean enemyDeath(){
+	public boolean enemyDeath(){//might need to be renamed to 'calculateDeath()'
 		return(true);//TODO: set this up for clones
 	}
 	public boolean playerTurn(){
@@ -76,6 +76,9 @@ public class Grid{
 	public int playerMove(String wrd,int turn){//updates and changes the map
 		grid[player[0]][player[1]]=playerSpot;
 		switch(wrd.toUpperCase()){
+		case "SPINACH"://TESTING ONLY
+			ATP=999;
+			break;
 		case "U": 
 			if(player[0]>2 && ATP>0 && playerTurn){
 				player[0]-=1;
@@ -124,9 +127,9 @@ public class Grid{
 		ATP--;
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
-		for(int n=0;n<clones.size();n++){//updates clone position and status
-			//TODO: fill this in
-		}
+		
+		System.out.println(playerSpot);//TESTING ONLY
+		
 		for(int n=0;n<heals.size();n++){//updates health position and status
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
 			if(heals.get(n).getAlive()){
@@ -152,6 +155,13 @@ public class Grid{
 				enemies.get(n).use();
 			}
 		}
+		
+		System.out.println(playerSpot+"\n");//TESTING ONLY
+		
+		/*for(int n=0;n<clones.size();n++){//updates clone position and status
+			grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]=clones.get(n).getSpot();
+			//if(clones.)
+		}*/
 		grid[player[0]][player[1]]='B';
 		l=showMap(turn);
 		return(turn);
