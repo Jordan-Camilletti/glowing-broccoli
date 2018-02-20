@@ -42,7 +42,7 @@ public class Grid{
 		return(grid[y][x]);
 	}
 	public boolean gameOver(){
-		return(playerHP<=0);
+		return(playerHP<=0 || endGame);
 	}
 	public boolean enemyDeath(){//might need to be renamed to 'calculateDeath()'
 		return(true);//TODO: set this up for clones
@@ -107,16 +107,17 @@ public class Grid{
 		case "E"://end turn
 			playerTurn=false;
 			turn++;
-			for(int n=0;n<enemies.size();n++){
+			for(int n=0;n<enemies.size();n++)//enemies move
 				enemies.get(n).move(grid);
-			}
+			for(int n=0;n<clones.size();n++)//clones move
+				clones.get(n).move(grid);
 			for(int n=0;n<6;n++){
 				if(enemies.get(n).getAlive() && turn%2==0){
 					enemies.add(new Enemy(grid));
-				}//should add an enemy for each of the 6 first enemies
+				}//adds an enemy for each of the 6 first enemies
 				if(heals.get(n).getAlive() && turn%2!=0){
 					heals.add(new Health(grid));
-				}//should add a health pack for each of the 6 first heals
+				}//adds a health pack for each of the 6 first heals
 			}
 			newTurn();
 			break;

@@ -2,8 +2,6 @@
 
 package glowingBroccoli;
 
-import java.util.Random;
-
 public class Enemy extends BasicUnit{
 	public Enemy(char[][] map) {
 		super(map);
