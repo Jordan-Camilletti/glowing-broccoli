@@ -127,9 +127,6 @@ public class Grid{
 		ATP--;
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
-		
-		System.out.println(playerSpot);//TESTING ONLY
-		
 		for(int n=0;n<heals.size();n++){//updates health position and status
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
 			if(heals.get(n).getAlive()){
@@ -153,11 +150,9 @@ public class Grid{
 			if(player[0]==enemies.get(n).getLoc()[0] && player[1]==enemies.get(n).getLoc()[1] && enemies.get(n).getAlive()){
 				playerHP--;
 				enemies.get(n).use();
+				playerSpot=enemies.get(n).getSpot();
 			}
 		}
-		
-		System.out.println(playerSpot+"\n");//TESTING ONLY
-		
 		/*for(int n=0;n<clones.size();n++){//updates clone position and status
 			grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]=clones.get(n).getSpot();
 			//if(clones.)
