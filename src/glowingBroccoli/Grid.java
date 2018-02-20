@@ -153,10 +153,14 @@ public class Grid{
 				playerSpot=enemies.get(n).getSpot();
 			}
 		}
-		/*for(int n=0;n<clones.size();n++){//updates clone position and status
+		for(int n=0;n<clones.size();n++){//updates clone position and status
 			grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]=clones.get(n).getSpot();
-			//if(clones.)
-		}*/
+			if(clones.get(n).getAlive()){
+				grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]='B';
+			}else{
+				grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]=clones.get(n).getSpot();
+			}
+		}
 		grid[player[0]][player[1]]='B';
 		l=showMap(turn);
 		return(turn);
