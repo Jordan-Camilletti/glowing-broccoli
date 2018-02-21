@@ -7,13 +7,13 @@ B=The Glowing Broccoli(you or clone)
 
 S=Sugar(enemy, -1 health)
 
-^=Mountain(takes 2 ATP to enter)
-
-#=Map Edge(edgier than 12 year old me)
+P=Protien(+1 health)
 
 O=Plain(takes 1 ATP to enter)
 
-P=Protien(+1 health)
+^=Mountain(takes 2 ATP to enter)
+
+#=Map Edge(edgier than 12 year old me)
 
 
 Fun Facts:
