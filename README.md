@@ -3,7 +3,7 @@ a simple work in progress text game I'm creating for the fun of it
 
 key:
 
-B=The Glowing Broccoli(you)
+B=The Glowing Broccoli(you or clone)
 
 S=Sugar(enemy, -1 health)
 
