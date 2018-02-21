@@ -27,3 +27,5 @@ Broccoli is part of the cabbage family
 California grows 90% of the USA's broccoli
 
 You eat more than 4 pounds of broccoli a year
+
+Broccoli consumption has increased 950% in the last 25 years
