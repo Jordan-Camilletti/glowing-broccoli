@@ -4,6 +4,7 @@ package glowingBroccoli;
 
 import javax.swing.JLabel;
 import java.util.*;
+import java.awt.Color;
 
 public class Grid{
 	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
@@ -58,7 +59,18 @@ public class Grid{
 		String s="<html>";
 		for(int n1=player[0]-2;n1<=player[0]+2;n1++){
 			for(int n2=player[1]-2;n2<=player[1]+2;n2++){
-				s=s+grid[n1][n2];
+				//s=s+grid[n1][n2];
+                                if(grid[n1][n2]=='B'){
+                                    s=s+"<font color=green>"+grid[n1][n2]+"</font>";
+                                }else if(grid[n1][n2]=='S'){
+                                    s=s+"<font color=red>"+grid[n1][n2]+"</font>";
+                                }else if(grid[n1][n2]=='P'){
+                                    s=s+"<font color=blue>"+grid[n1][n2]+"</font>";
+                                }else if(grid[n1][n2]=='^'){
+                                    s=s+"<font color=grey>"+grid[n1][n2]+"</font>";
+                                }else{
+                                    s=s+grid[n1][n2];
+                                }
 				if(n1==player[0]-2 && n2==player[1]+2){
 					s=s+" Turn: "+(turn);
 				}else if(n1==player[0]-1 && n2==player[1]+2){
@@ -71,6 +83,7 @@ public class Grid{
 		}
 		s=s+"</html>";
 		l.setText(s+"</html>");
+                //l.setForeground(Color.red);
 		return(l);
 	}
 	public int playerMove(String wrd,int turn){//updates and changes the map
