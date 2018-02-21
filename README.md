@@ -9,7 +9,7 @@ S=Sugar(enemy, -1 health)
 
 ^=Mountain(takes 2 ATP to enter)
 
-#=Map Edge
+#=Map Edge(edgier than 12 year old me)
 
 O=Plain(takes 1 ATP to enter)
 
