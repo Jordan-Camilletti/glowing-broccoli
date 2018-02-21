@@ -153,6 +153,12 @@ public class Grid{
 				enemies.get(n).use();
 				playerSpot=enemies.get(n).getSpot();
 			}
+			for(int n2=0;n2<clones.size();n2++){
+				if(clones.get(n2).getAlive() && enemies.get(n).getAlive() && clones.get(n2).getLoc()[0]==enemies.get(n).getLoc()[0] && clones.get(n2).getLoc()[1]==enemies.get(n).getLoc()[1]){
+					clones.get(n2).use();
+					enemies.get(n).use();
+				}
+			}
 		}
 		for(int n=0;n<clones.size();n++){//updates clone position and status
 			grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]=clones.get(n).getSpot();
@@ -160,6 +166,12 @@ public class Grid{
 				grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]='B';
 			}else{
 				grid[clones.get(n).getLoc()[0]][clones.get(n).getLoc()[1]]=clones.get(n).getSpot();
+			}
+			for(int n2=0;n2<enemies.size();n2++){
+				if(clones.get(n).getAlive() && enemies.get(n2).getAlive() && clones.get(n).getLoc()[0]==enemies.get(n2).getLoc()[0] && clones.get(n).getLoc()[1]==enemies.get(n2).getLoc()[1]){
+					clones.get(n).use();
+					enemies.get(n2).use();
+				}
 			}
 		}
 		grid[player[0]][player[1]]='B';
