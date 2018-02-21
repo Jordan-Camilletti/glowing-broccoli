@@ -29,3 +29,7 @@ California grows 90% of the USA's broccoli
 You eat more than 4 pounds of broccoli a year
 
 Broccoli consumption has increased 950% in the last 25 years
+
+"I do not like broccoli. And I haven’t liked it since I was a little kid and my mother made me eat it. And I’m President of the United States and I’m not going to eat any more broccoli." - George Bush.
+
+Broccoli is the 6th most misspelt english word
