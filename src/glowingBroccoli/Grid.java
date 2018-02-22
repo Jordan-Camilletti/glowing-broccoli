@@ -68,8 +68,8 @@ public class Grid{
                                     s=s+"<font color=blue>"+grid[n1][n2]+"</font>";
                                 }else if(grid[n1][n2]=='^'){
                                     s=s+"<font color=#999999>"+grid[n1][n2]+"</font>";
-                                }else if(grid[n1][n1]=='#'){
-                                    s=s+"<font color=>"+grid[n1][n2]+"</font>";
+                                }else if(grid[n1][n2]=='#'){
+                                    s=s+"<font color=#EAEDED>"+grid[n1][n2]+"</font>";
                                 }else{
                                     s=s+grid[n1][n2];
                                 }
