@@ -13,9 +13,6 @@ O=Plain(takes 1 ATP to enter)
 
 ^=Mountain(takes 2 ATP to enter)
 
-#=Map Edge(edgier than 12 year old me)
-
-
 Fun Facts:
 
 Thomas Jefferson loved broccoli so much he imported seeds from Italy in order to grow it.
