@@ -67,7 +67,9 @@ public class Grid{
                                 }else if(grid[n1][n2]=='P'){
                                     s=s+"<font color=blue>"+grid[n1][n2]+"</font>";
                                 }else if(grid[n1][n2]=='^'){
-                                    s=s+"<font color=grey>"+grid[n1][n2]+"</font>";
+                                    s=s+"<font color=#999999>"+grid[n1][n2]+"</font>";
+                                }else if(grid[n1][n1]=='#'){
+                                    s=s+"<font color=>"+grid[n1][n2]+"</font>";
                                 }else{
                                     s=s+grid[n1][n2];
                                 }
