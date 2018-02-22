@@ -5,6 +5,8 @@ Commands:
 
 WASD=Normal movement
 
+C=clone(creates a clone, cost 1 ATP)
+
 E=End turn(enemies and clones move, ATP goes back up to 3)
 
 QUIT=quit, what did you expect?
