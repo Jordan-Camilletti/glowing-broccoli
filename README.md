@@ -5,6 +5,10 @@ Commands:
 
 WASD=Normal movement
 
+E=End turn(enemies and clones move, ATP goes back up to 3)
+
+QUIT=quit, what did you expect?
+
 Key:
 
 B=The Glowing Broccoli(you or clone)
