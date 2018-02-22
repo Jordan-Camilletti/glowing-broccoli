@@ -34,3 +34,5 @@ Broccoli is the 6th most misspelt english word
 There's no sign for broccoli in ASL
 
 China produces the most broccoli in the world
+
+Tom Landers holds the broccoli eating world record as 1 pound of broccoli in 92 seconds
