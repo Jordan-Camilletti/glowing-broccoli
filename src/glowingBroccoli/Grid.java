@@ -61,7 +61,10 @@ public class Grid{
 			for(int n2=player[1]-2;n2<=player[1]+2;n2++){
 				//s=s+grid[n1][n2];
                                 if(grid[n1][n2]=='B'){
-                                    s=s+"<font color=green>"+grid[n1][n2]+"</font>";
+                                    if(player[0]==n1 && player[1]==n2)
+                                        s=s+"<font color=#00DC00>"+grid[n1][n2]+"</font>";
+                                    else
+                                        s=s+"<font color=green>"+grid[n1][n2]+"</font>";
                                 }else if(grid[n1][n2]=='S'){
                                     s=s+"<font color=red>"+grid[n1][n2]+"</font>";
                                 }else if(grid[n1][n2]=='P'){
