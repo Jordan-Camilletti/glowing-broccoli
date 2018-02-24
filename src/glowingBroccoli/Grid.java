@@ -88,7 +88,6 @@ public class Grid{
 		}
 		s=s+"</html>";
 		l.setText(s+"</html>");
-                //l.setForeground(Color.red);
 		return(l);
 	}
 	public int playerMove(String wrd,int turn){//updates and changes the map
