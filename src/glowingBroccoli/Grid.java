@@ -43,7 +43,7 @@ public class Grid{
 		return(grid[y][x]);
 	}
 	public boolean gameOver(){
-		return(playerHP<=0 || endGame);
+		return(playerHP<=0 || endGame || !enemyLeft());
 	}
 	public boolean enemyDeath(){//might need to be renamed to 'calculateDeath()'
 		return(true);//TODO: set this up for clones
@@ -51,6 +51,11 @@ public class Grid{
 	public boolean playerTurn(){
 		return(playerTurn);
 	}
+        public boolean enemyLeft(){
+            //TODO: fill this out
+            //true if any enemies left alive
+            return(true);
+        }
 	public void newTurn(){
 		ATP=4;
 		playerTurn=true;
