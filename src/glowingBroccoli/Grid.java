@@ -45,17 +45,16 @@ public class Grid{
 	public boolean gameOver(){
 		return(playerHP<=0 || endGame || !enemyLeft());
 	}
-	public boolean enemyDeath(){//might need to be renamed to 'calculateDeath()'
-		return(true);//TODO: set this up for clones
-	}
 	public boolean playerTurn(){
 		return(playerTurn);
 	}
-        public boolean enemyLeft(){
-            //TODO: fill this out
-            //true if any enemies left alive
-            return(true);
-        }
+	public boolean enemyLeft(){
+		for(Enemy e:enemies){
+			if(e.getAlive())
+				return(false);
+		}
+		return(true);
+	}
 	public void newTurn(){
 		ATP=4;
 		playerTurn=true;
