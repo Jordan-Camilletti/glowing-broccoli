@@ -7,11 +7,14 @@ import java.util.*;
 import java.awt.Color;
 
 public class Grid{
-	private char[][] grid=new char[12][12];//complete grid, not all is seen at once. 2 outside rows are all #
+	private char[][] grid;//complete grid, not all is seen at once. 2 outside rows are all #
 	private JLabel l=new JLabel();
 	private int[] player=new int[2];
 	private int playerHP=5;
 	private int ATP=3;
+	private int horiSize=6;
+	private int vertSize=6;
+	private int area;
 	private char playerSpot='O';//this is the spot the player is standing on
 	private boolean playerTurn=true;
 	private boolean endGame=false;
@@ -19,14 +22,20 @@ public class Grid{
 	private ArrayList<Health> heals=new ArrayList<Health>();
 	private ArrayList<Clone> clones=new ArrayList<Clone>();
         
-	public Grid(){
-		for(int i=0;i<100;i++){//sets the grid as empty
-			if(i/10<2||i/10>=8||i%10<2||i%10>=8){
-				grid[i/10][i%10]='#';
-			}else if(Math.random()>=0.85){
-				grid[i/10][i%10]='^';
-			}else{
-				grid[i/10][i%10]='O';
+	public Grid(int hs, int vs){
+		horiSize=hs+4;
+		vertSize=vs+4;
+		area=horiSize*vertSize;
+		grid=new char[vertSize][horiSize];
+		for(int v=0;v<vertSize;v++){
+			for(int h=0;h<horiSize;h++){
+				if(h<2 || h>=horiSize-2 || v<2 || v>=vertSize-2){
+					grid[v][h]='#';
+				}else if (Math.random()>=0.85){
+					grid[v][h]='^';
+				}else{
+					grid[v][h]='O';
+				}
 			}
 		}
 		player[0]=2;//y
@@ -51,9 +60,9 @@ public class Grid{
 	public boolean enemyLeft(){
 		for(Enemy e:enemies){
 			if(e.getAlive())
-				return(false);
+				return(true);
 		}
-		return(true);
+		return(false);
 	}
 	public void newTurn(){
 		ATP=4;
@@ -106,7 +115,7 @@ public class Grid{
 			}
 			break;
 		case "D": 
-			if(player[0]<=6 && ATP>0 && playerTurn){
+			if(player[0]<=vertSize-4 && ATP>0 && playerTurn){
 				player[0]+=1;
 			}
 			break;
@@ -116,7 +125,7 @@ public class Grid{
 			}
 			break;
 		case "R": 
-			if(player[1]<=6 && ATP>0 && playerTurn){
+			if(player[1]<=horiSize-4 && ATP>0 && playerTurn){
 				player[1]+=1;
 			}
 			break;
