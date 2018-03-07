@@ -2,7 +2,7 @@
 
 package glowingBroccoli;
 
-public class Upgrade(){
+public class Upgrade() extends BasicUnit{
   public Upgrade(){
     
   }
