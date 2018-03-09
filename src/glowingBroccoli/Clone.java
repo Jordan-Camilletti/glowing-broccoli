@@ -3,8 +3,8 @@
 package glowingBroccoli;
 
 public class Clone extends BasicUnit{
-	public Clone(char[][] map) {
-		super(map);
+	public Clone(char[][] map,int vertSize,int horiSize) {
+		super(map,vertSize,horiSize);
 	}
 	public void move(char[][] grid){
 		int movement=rnd.nextInt(4);

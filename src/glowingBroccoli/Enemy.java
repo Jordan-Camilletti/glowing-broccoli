@@ -3,8 +3,8 @@
 package glowingBroccoli;
 
 public class Enemy extends BasicUnit{
-	public Enemy(char[][] map) {
-		super(map);
+	public Enemy(char[][] map,int vertSize,int horiSize) {
+		super(map,vertSize,horiSize);
 	}
 	public void move(char[][] grid){
 		int movement=rnd.nextInt(4);

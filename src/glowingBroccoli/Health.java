@@ -3,7 +3,7 @@
 package glowingBroccoli;
 
 public class Health extends BasicUnit{
-	public Health(char[][] map) {
-		super(map);
+	public Health(char[][] map,int vertSize,int horiSize) {
+		super(map,vertSize,horiSize);
 	}
 }

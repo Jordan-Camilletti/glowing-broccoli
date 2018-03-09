@@ -3,8 +3,8 @@
 package glowingBroccoli;
 
 public class Upgrade extends BasicUnit{
-	public Upgrade(char[][] map){
-		super(map);
+	public Upgrade(char[][] map,int vertSize,int horiSize){
+		super(map,vertSize,horiSize);
 	}
 	public int getPower(){
 		return(rnd.nextInt(5));

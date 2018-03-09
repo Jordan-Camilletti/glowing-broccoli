@@ -44,12 +44,12 @@ public class Grid{
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
 		for(int n=0;n<6;n++){//starting off with 6 heals, 6 enemies, and 3 upgrades
-			enemies.add(new Enemy(grid));
-			heals.add(new Health(grid));
+			enemies.add(new Enemy(grid,vertSize,horiSize));
+			heals.add(new Health(grid,vertSize,horiSize));
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
                         if((n+1)%2==0){
-                            upgrades.add(new Upgrade(grid));
+                            upgrades.add(new Upgrade(grid,vertSize,horiSize));
                             grid[upgrades.get(((n+1)/2)-1).getLoc()[0]][upgrades.get(((n+1)/2)-1).getLoc()[1]]='U';
                         }
 		}
@@ -139,7 +139,7 @@ public class Grid{
 			break;
 		case "C"://create a clone
 			if(ATP>0 && playerHP>0){
-				clones.add(new Clone(grid));
+				clones.add(new Clone(grid,vertSize,horiSize));
 			}
 			break;
 		case "E"://end turn
@@ -151,10 +151,10 @@ public class Grid{
 				clones.get(n).move(grid);
 			for(int n=0;n<6;n++){
 				if(enemies.get(n).getAlive() && turn%2==0){
-					enemies.add(new Enemy(grid));
+					enemies.add(new Enemy(grid,vertSize,horiSize));
 				}//adds an enemy for each of the 6 first enemies
 				if(heals.get(n).getAlive() && turn%2!=0){
-					heals.add(new Health(grid));
+					heals.add(new Health(grid,vertSize,horiSize));
 				}//adds a health pack for each of the 6 first heals
 			}
 			newTurn();
@@ -179,8 +179,8 @@ public class Grid{
                         }else if(power==1){//+10 health
                             playerHP+=10;
                         }else if(power==2){//2 clones
-                            clones.add(new Clone(grid));
-                            clones.add(new Clone(grid));
+                            clones.add(new Clone(grid,vertSize,horiSize));
+                            clones.add(new Clone(grid,vertSize,horiSize));
                         }else if(power==3){//+3 ATP
                             ATP+=3;
                         }else{//+1 ATP every turn

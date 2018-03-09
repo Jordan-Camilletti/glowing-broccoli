@@ -9,14 +9,14 @@ public class BasicUnit{
 	protected char spot='O';
 	protected boolean alive=true;
 	protected Random rnd=new Random();
-	public BasicUnit(char[][] map){
-		create(map);
+	public BasicUnit(char[][] map, int vertSize, int horiSize){
+		create(map,vertSize,horiSize);
 	}
-	public void create(char[][] map){
+	public void create(char[][] map, int vertSize, int horiSize){
 		alive=true;
 		do{
-			loc[0]=rnd.nextInt(6)+2;
-			loc[1]=rnd.nextInt(6)+2;
+			loc[0]=rnd.nextInt(vertSize-2)+2;
+			loc[1]=rnd.nextInt(horiSize-2)+2;
 		}while(map[loc[0]][loc[1]]=='B'||map[loc[0]][loc[1]]=='S'||map[loc[0]][loc[1]]=='#');
 		spot=map[loc[0]][loc[1]];
 	}
