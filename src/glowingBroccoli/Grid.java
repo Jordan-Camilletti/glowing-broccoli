@@ -21,6 +21,7 @@ public class Grid{
 	private ArrayList<Enemy> enemies=new ArrayList<Enemy>();
 	private ArrayList<Health> heals=new ArrayList<Health>();
 	private ArrayList<Clone> clones=new ArrayList<Clone>();
+        private ArrayList<Upgrade> upgrades=new ArrayList<Upgrade>();
         
 	public Grid(int hs, int vs){
 		horiSize=hs+4;
@@ -41,11 +42,15 @@ public class Grid{
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
-		for(int n=0;n<6;n++){//starting off with 6 heals and 6 enemies
+		for(int n=0;n<6;n++){//starting off with 6 heals, 6 enemies, and 3 upgrades
 			enemies.add(new Enemy(grid));
 			heals.add(new Health(grid));
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
+                        /*if((n+1)%2==0){
+                            upgrades.add(new Upgrade(grid));CRASHES
+                            grid[upgrades.get(n).getLoc()[0]][upgrades.get(n).getLoc()[1]]='U';
+                        }*/
 		}
 	}
 	public char getSpot(int y,int x){
