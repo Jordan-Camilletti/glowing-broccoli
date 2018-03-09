@@ -47,10 +47,10 @@ public class Grid{
 			heals.add(new Health(grid));
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
-                        /*if((n+1)%2==0){
-                            upgrades.add(new Upgrade(grid));CRASHES
-                            grid[upgrades.get(n).getLoc()[0]][upgrades.get(n).getLoc()[1]]='U';
-                        }*/
+                        if((n+1)%2==0){
+                            upgrades.add(new Upgrade(grid));
+                            grid[upgrades.get(((n+1)/2)-1).getLoc()[0]][upgrades.get(((n+1)/2)-1).getLoc()[1]]='U';
+                        }
 		}
 	}
 	public char getSpot(int y,int x){
@@ -91,6 +91,8 @@ public class Grid{
                                     s=s+"<font color=#999999>"+grid[n1][n2]+"</font>";
                                 }else if(grid[n1][n2]=='#'){
                                     s=s+"<font color=#EAEDED>"+grid[n1][n2]+"</font>";
+                                }else if(grid[n1][n2]=='U'){
+                                    s=s+"<font color=#11fcf4>"+grid[n1][n2]+"</font>";
                                 }else{
                                     s=s+grid[n1][n2];
                                 }
@@ -163,6 +165,18 @@ public class Grid{
 		ATP--;
 		playerSpot=grid[player[0]][player[1]];
 		if(playerSpot=='^') ATP--;
+                for(int n=0;n<upgrades.size();n++){//updates upgrade poistion and status
+                    if(upgrades.get(n).getAlive()){
+                        grid[upgrades.get(n).getLoc()[0]][upgrades.get(n).getLoc()[1]]='U';
+                    }else{
+                        grid[upgrades.get(n).getLoc()[0]][upgrades.get(n).getLoc()[1]]=upgrades.get(n).getSpot();
+                    }
+                    if(player[0]==upgrades.get(n).getLoc()[0] && player[1]==upgrades.get(n).getLoc()[1] && upgrades.get(n).getAlive()){
+                        //player gets upgraded
+                        upgrades.get(n).use();
+                        playerSpot=upgrades.get(n).getSpot();
+                    }
+                }
 		for(int n=0;n<heals.size();n++){//updates health position and status
 			//grid[heals[n].getLoc()[0]][heals[n].getLoc()[1]]=heals[n].getSpot();
 			if(heals.get(n).getAlive()){
