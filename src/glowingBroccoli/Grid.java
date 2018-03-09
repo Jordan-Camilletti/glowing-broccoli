@@ -43,15 +43,13 @@ public class Grid{
 		player[0]=2;//y
 		player[1]=2;//x
 		grid[player[0]][player[1]]='B';
-		for(int n=0;n<6;n++){//starting off with 6 heals, 6 enemies, and 3 upgrades
+		for(int n=0;n<6;n++){//starting off with 6 heals, 6 enemies, and 6 upgrades
 			enemies.add(new Enemy(grid,vertSize,horiSize));
 			heals.add(new Health(grid,vertSize,horiSize));
+                        upgrades.add(new Upgrade(grid,vertSize,horiSize));
 			grid[enemies.get(n).getLoc()[0]][enemies.get(n).getLoc()[1]]='S';
 			grid[heals.get(n).getLoc()[0]][heals.get(n).getLoc()[1]]='P';
-                        if((n+1)%2==0){
-                            upgrades.add(new Upgrade(grid,vertSize,horiSize));
-                            grid[upgrades.get(((n+1)/2)-1).getLoc()[0]][upgrades.get(((n+1)/2)-1).getLoc()[1]]='U';
-                        }
+                        grid[upgrades.get(n).getLoc()[0]][upgrades.get(n).getLoc()[1]]='U';
 		}
 	}
 	public char getSpot(int y,int x){
