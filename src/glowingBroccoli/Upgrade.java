@@ -7,6 +7,6 @@ public class Upgrade extends BasicUnit{
 		super(map);
 	}
 	public int getPower(){
-		return(rnd.nextInt(4));
+		return(rnd.nextInt(5));
 	}//0==+5 health,1==+10 health,2==2 free clones,3==+3 ATP,4==+1 ATP every turn
 }

@@ -12,6 +12,7 @@ public class Grid{
 	private int[] player=new int[2];
 	private int playerHP=5;
 	private int ATP=3;
+        private int ATPinc=0;
 	private int horiSize=6;
 	private int vertSize=6;
 	private int area;
@@ -70,7 +71,7 @@ public class Grid{
 		return(false);
 	}
 	public void newTurn(){
-		ATP=4;
+		ATP=4+ATPinc;
 		playerTurn=true;
 	}
 	public JLabel showMap(int turn){//returns a JLabel that outputs the grid visible to the player
@@ -172,7 +173,19 @@ public class Grid{
                         grid[upgrades.get(n).getLoc()[0]][upgrades.get(n).getLoc()[1]]=upgrades.get(n).getSpot();
                     }
                     if(player[0]==upgrades.get(n).getLoc()[0] && player[1]==upgrades.get(n).getLoc()[1] && upgrades.get(n).getAlive()){
-                        //player gets upgraded
+                        int power=upgrades.get(n).getPower();
+                        if(power==0){//+5 health
+                            playerHP+=5;
+                        }else if(power==1){//+10 health
+                            playerHP+=10;
+                        }else if(power==2){//2 clones
+                            clones.add(new Clone(grid));
+                            clones.add(new Clone(grid));
+                        }else if(power==3){//+3 ATP
+                            ATP+=3;
+                        }else{//+1 ATP every turn
+                            ATPinc+=1;
+                        }
                         upgrades.get(n).use();
                         playerSpot=upgrades.get(n).getSpot();
                     }
