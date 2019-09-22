@@ -11,6 +11,8 @@ E=End turn(enemies and clones move, ATP goes back up to 3)
 
 QUIT=quit, what did you expect?
 
+HELP=prints out this
+
 Key:
 
 B=The Glowing Broccoli(you or clone)
