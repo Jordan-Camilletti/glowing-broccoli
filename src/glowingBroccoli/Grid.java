@@ -157,6 +157,30 @@ public class Grid{
 			}
 			newTurn();
 			break;
+		case "HELP":
+			System.out.print("Commands:\n" + 
+					"\n" + 
+					"WASD=Normal movement\n" + 
+					"\n" + 
+					"C=clone(creates a clone, cost 1 ATP)\n" + 
+					"\n" + 
+					"E=End turn(enemies and clones move, ATP goes back up to 3)\n" + 
+					"\n" + 
+					"QUIT=quit, what did you expect?\n" + 
+					"\n" + 
+					"Key:\n" + 
+					"\n" + 
+					"B=The Glowing Broccoli(you or clone)\n" + 
+					"\n" + 
+					"S=Sugar(enemy, -1 health)\n" + 
+					"\n" + 
+					"P=Protien(+1 health)\n" + 
+					"\n" + 
+					"O=Plain(takes 1 ATP to enter)\n" + 
+					"\n" + 
+					"^=Mountain(takes 2 ATP to enter)");
+			ATP++;
+			break;
 		case "QUIT":
 			endGame=true;
 			break;
