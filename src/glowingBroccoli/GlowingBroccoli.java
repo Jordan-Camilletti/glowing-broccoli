@@ -10,6 +10,7 @@ public class GlowingBroccoli{
 		int turn=1;
 		Scanner k=new Scanner(System.in);
 		String movement;
+		System.out.println("Enter grid size");
 		Grid map=new Grid(k.nextInt(),k.nextInt());
 		JFrame f=new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
