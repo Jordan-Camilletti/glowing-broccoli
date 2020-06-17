@@ -1,5 +1,5 @@
 # glowing-broccoli
-a basic text game I'm creating for the fun of it
+A basic text game created for the fun of it.
 
 Commands:
 
